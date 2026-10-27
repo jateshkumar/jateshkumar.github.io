@@ -301,6 +301,26 @@ main, .footer {
 }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
+.freelance {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 20px;
+  padding: 28px;
+  border: 1px solid rgba(0, 255, 157, 0.35);
+  border-radius: var(--radius);
+  background: linear-gradient(120deg, rgba(0, 255, 157, 0.08), rgba(0, 184, 255, 0.05) 60%, transparent), var(--panel);
+}
+.freelance > div:first-child { flex: 1 1 420px; }
+.freelance h3 { font-size: 22px; margin-bottom: 8px; }
+.freelance p { color: var(--muted); font-size: 14px; max-width: 620px; }
+.freelance-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.freelance p a { color: var(--accent); }
+.review-links { display: flex; flex-wrap: wrap; gap: 12px; margin: -12px 0 32px; }
+.review-links .btn { padding: 9px 16px; font-size: 13px; }
+
 /* APPS */
 .grid {
   display: grid;
