@@ -82,8 +82,76 @@ if ('IntersectionObserver' in window) {
   revealables.forEach((el) => el.classList.add('in'));
 }
 
-// Type out the hero code window
+// Background: my app icons drifting slowly up behind the page
+const bgApps = document.querySelector('.bg-apps');
+const appIcons = ['purevpn', 'puredome', 'zofeur', 'orko', 'merigari'];
+
+if (!reduceMotion) {
+  for (let n = 0; n < 10; n += 1) {
+    const img = document.createElement('img');
+    img.src = `assets/apps/${appIcons[n % appIcons.length]}-icon.png`;
+    img.alt = '';
+    img.style.setProperty('--x', `${(n * 10 + Math.random() * 6).toFixed(1)}%`);
+    img.style.setProperty('--s', `${Math.round(36 + Math.random() * 44)}px`);
+    img.style.setProperty('--d', `${Math.round(30 + Math.random() * 25)}s`);
+    img.style.setProperty('--r', `${Math.round(Math.random() * 60 - 30)}deg`);
+    img.style.animationDelay = `${(-Math.random() * 50).toFixed(1)}s`;
+    bgApps.append(img);
+  }
+}
+
+// "Live on the App Store" ticker: duplicate the items so the loop is seamless
+const track = document.querySelector('.marquee-track');
+
+if (!reduceMotion) {
+  [...track.children].forEach((item) => {
+    const copy = item.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.tabIndex = -1;
+    track.append(copy);
+  });
+  track.classList.add('animate');
+}
+
+// Release pipeline that plays in the terminal under the code window
+const termBody = document.querySelector('.code-term-body');
+const releases = [
+  { app: 'Zofeur' },
+  { app: 'PureVPN', macOS: true },
+  { app: 'ORKO Network' },
+  { app: 'PureDome', macOS: true },
+  { app: 'Meri Gari' },
+];
+
+const pipelineLines = ({ app, macOS }) => [
+  ['cmd', `$ fastlane release app:"${app}"`],
+  ['step', '\u25B8 Archiving build... done'],
+  ['step', '\u25B8 Running XCTest suite... passed'],
+  ...(macOS ? [['step', '\u25B8 Notarizing macOS PKG... accepted']] : []),
+  ['step', '\u25B8 Uploading to App Store Connect... done'],
+  ['ok', `\u2713 ${app} is Ready for Distribution`],
+];
+
+const printLine = ([kind, text]) => {
+  const line = document.createElement('div');
+  line.className = `t-${kind}`;
+  line.textContent = text;
+  termBody.append(line);
+};
+
+const runPipeline = (n = 0) => {
+  termBody.textContent = '';
+  const lines = pipelineLines(releases[n % releases.length]);
+  lines.forEach((line, k) => setTimeout(() => printLine(line), k * 650));
+  setTimeout(() => runPipeline(n + 1), lines.length * 650 + 2600);
+};
+
+// Type out the hero code window, then start the pipeline
 const code = document.querySelector('.code-window code');
+
+if (code && code.offsetParent && reduceMotion) {
+  pipelineLines(releases[0]).forEach(printLine);
+}
 
 if (code && code.offsetParent && !reduceMotion) {
   // Lock the height so the hero doesn't shift while the text grows
@@ -99,7 +167,10 @@ if (code && code.offsetParent && !reduceMotion) {
   let i = 0;
   let j = 0;
   const type = () => {
-    if (i >= chunks.length) return;
+    if (i >= chunks.length) {
+      runPipeline();
+      return;
+    }
     const { node, text } = chunks[i];
     j += 1;
     node.textContent = text.slice(0, j);
