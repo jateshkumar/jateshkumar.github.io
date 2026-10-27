@@ -386,7 +386,7 @@ const termCommands = {
   ],
   whoami: () => [
     'Jatesh Kumar',
-    'Senior iOS & macOS Engineer · Deputy Manager, Team Lead',
+    'Staff iOS & macOS Engineer · Deputy Manager',
     'Karachi, Pakistan · open to remote roles and freelance projects',
   ],
   ls: (args) => {
@@ -400,7 +400,7 @@ const termCommands = {
     return [`Opening ${app.name} on the App Store...`];
   },
   experience: () => [
-    '* Sep 2026 – now      Deputy Manager, AI/ML Automation · Ideas Private Limited',
+    '* Sep 2026 – now      Deputy Manager (Staff Engineer), AI/ML Automation · Ideas Private Limited',
     '* Mar 2023 – Sep 2026 Senior Engineer, iOS/macOS · PureSquare (Disrupt.com)',
     '* Feb 2021 – Mar 2023 iOS Engineer · Next Generation Innovation (NextGenI)',
   ],
