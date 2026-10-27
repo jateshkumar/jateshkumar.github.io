@@ -218,9 +218,10 @@ const commands = [
   { group: 'Go to', label: 'Apps', hint: '#apps', run: goTo('#apps') },
   { group: 'Go to', label: 'Impact', hint: '#impact', run: goTo('#impact') },
   { group: 'Go to', label: 'Experience', hint: '#experience', run: goTo('#experience') },
-  { group: 'Go to', label: 'Client reviews', hint: '#testimonials', run: goTo('#testimonials') },
+  { group: 'Go to', label: 'Recommendations and reviews', hint: '#testimonials', run: goTo('#testimonials') },
   { group: 'Go to', label: 'Skills', hint: '#skills', run: goTo('#skills') },
   { group: 'Go to', label: 'Contact', hint: '#contact', run: goTo('#contact') },
+  { group: 'Actions', label: 'Book a 30-min call', hint: 'calendly', run: openTab('https://calendly.com/jateshkumarmaheshwari/30min') },
   {
     group: 'Actions',
     label: 'Download resume (PDF)',
