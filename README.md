@@ -8,6 +8,11 @@ Personal portfolio for Jatesh Kumar. Static HTML, CSS, and JavaScript, no build 
 - `style.css`: dark theme and layout
 - `script.js`: mobile menu, year in footer, contact form submission
 - `assets/Jatesh-Kumar-Resume.pdf`: downloadable resume
+- `assets/favicon.svg`, `assets/apple-touch-icon.png`: browser and home-screen icons
+- `assets/apps/`: App Store icons and screenshots for the Apps section (`<app>-icon.png`, `<app>-1.webp` to `-3.webp`)
+- `assets/og-image.png`: 1200x630 preview image shown when the link is shared on LinkedIn, Slack, etc.
+- `404.html`: page GitHub Pages shows for missing URLs
+- `robots.txt`, `sitemap.xml`: search engine hints (update `<lastmod>` in the sitemap after big content changes)
 
 ## Replacing the old site
 
@@ -29,11 +34,12 @@ GitHub Pages only serves static files, so the form needs a third-party service t
 1. Create a free account at formspree.io and create a new form. Set the notification email to your inbox.
 2. Copy the form endpoint, which looks like `https://formspree.io/f/abcd1234`.
 3. In `index.html`, replace `YOUR_FORM_ID` in the `<form action="...">` attribute with your form ID.
-4. Commit the change. Until this is done, submissions will fail and the page will show an error message.
+4. Commit the change. Until this is done, the form opens the visitor's email app with their message pre-filled instead of sending it.
 
 ## Updating content
 
-- **Apps:** edit the `<article class="card">` blocks in the Apps section.
+- **Apps:** edit the `<article class="card">` blocks in the Apps section. Ratings are copied by hand from the App Store, so refresh them now and then.
+- **Services, Impact, and Reviews:** edit the `.service`, `.case`, and `.review` blocks. Reviews are quoted word for word from Upwork and Freelancer.com, so keep them verbatim.
 - **Experience and skills:** edit the `<li>` items in the Experience timeline and the `.chips` groups in Skills.
 - **Colors:** change the CSS variables at the top of `style.css`.
 - **Resume:** replace `assets/Jatesh-Kumar-Resume.pdf` with a new file of the same name.
