@@ -378,6 +378,7 @@ const termCommands = {
     '  experience      where I have worked',
     '  skills          what I work with',
     '  resume          view my resume',
+    '  zofeur          read the Zofeur case study',
     '  contact         how to reach me',
     '  book            book a 30-min call',
     '  clear           clear the screen',
@@ -411,6 +412,10 @@ const termCommands = {
     'release       Fastlane, Azure DevOps, GitHub Actions, notarization, PKG',
     'testing       XCTest, TDD, Firebase Crashlytics, Instruments',
   ],
+  zofeur: () => {
+    window.location.href = 'zofeur.html';
+    return ['Opening the Zofeur case study...'];
+  },
   resume: () => {
     window.open('resume.html', '_blank', 'noopener');
     return ['Opening resume.html... (PDF: assets/Jatesh-Kumar-Resume.pdf)'];
