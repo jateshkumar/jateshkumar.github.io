@@ -817,13 +817,19 @@ main, .footer {
 
 /* LINKEDIN RECOMMENDATIONS */
 .reviews.recs {
-  display: block;
-  columns: 3 300px;
-  column-gap: 20px;
-}
-.recs .review {
-  break-inside: avoid;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
   margin-bottom: 20px;
+}
+.rec-col { display: flex; flex-direction: column; gap: 20px; }
+.rec-col > .review:last-child { flex-grow: 1; }
+@media (max-width: 1000px) {
+  .reviews.recs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rec-col { display: contents; }
+}
+@media (max-width: 680px) {
+  .reviews.recs { grid-template-columns: 1fr; }
 }
 .rec blockquote p::before, .rec blockquote p::after { content: none; }
 .rec blockquote p { color: var(--muted); }
