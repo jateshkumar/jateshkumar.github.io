@@ -27,14 +27,14 @@ Personal portfolio for Jatesh Kumar. Static HTML, CSS, and JavaScript, no build 
 3. Set **Branch** to `main` and the folder to `/ (root)`, then click **Save**.
 4. After about a minute, the site is live at `https://jateshkumar.github.io`.
 
-## Setting up the contact form
+## Contact form
 
-GitHub Pages only serves static files, so the form needs a third-party service to receive messages. This site uses [Formspree](https://formspree.io):
+GitHub Pages only serves static files, so the form posts to a Google Form ("Contact ME") in the background. Responses appear in the form's **Responses** tab (or a linked Google Sheet).
 
-1. Create a free account at formspree.io and create a new form. Set the notification email to your inbox.
-2. Copy the form endpoint, which looks like `https://formspree.io/f/abcd1234`.
-3. In `index.html`, replace `YOUR_FORM_ID` in the `<form action="...">` attribute with your form ID.
-4. Commit the change. Until this is done, the form opens the visitor's email app with their message pre-filled instead of sending it.
+- **Email alerts:** in the Google Form, open **Responses → ⋮ → Get email notifications for new responses**.
+- **Field mapping:** each input's `name` in `index.html` is a Google Form field ID (`entry.817197740` = Name, `entry.535239536` = Email, `entry.797285554` = Message).
+- **Changing the form:** if you replace the form or recreate a question, open **⋮ → Get pre-filled link** in the form editor, fill in test values, and copy the new form ID and `entry.` numbers from the link into the `<form action>` and input names.
+- Google doesn't let the page read its reply, so the page shows a success message whenever the request leaves the browser. The email link beside the form is the fallback.
 
 ## Updating content
 

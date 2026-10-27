@@ -53,7 +53,7 @@ if ('IntersectionObserver' in window) {
   revealables.forEach((el) => el.classList.add('in'));
 }
 
-// Contact form: submits to Formspree via fetch so the user stays on the page
+// Contact form: posts to a Google Form in the background so the visitor stays on the page
 const form = document.querySelector('.contact-form');
 const status = document.querySelector('.form-status');
 
@@ -63,36 +63,24 @@ form.addEventListener('submit', async (e) => {
   // Honeypot: bots fill the hidden field, humans don't
   if (form._gotcha.value) return;
 
-  // Until a Formspree form ID is set, hand the message to the visitor's email app
-  if (form.action.includes('YOUR_FORM_ID')) {
-    const { name, email, message } = form.elements;
-    const subject = `Portfolio message from ${name.value}`;
-    const body = `${message.value}\n\n${name.value}\n${email.value}`;
-    window.location.href = `mailto:jateshkumarmaheshwari@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.className = 'form-status ok';
-    status.textContent = 'Opening your email app...';
-    return;
-  }
-
   const button = form.querySelector('button');
   button.disabled = true;
   status.className = 'form-status';
   status.textContent = 'Sending...';
 
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' },
-    });
+  // Send only the Google Form fields, not the honeypot
+  const data = new URLSearchParams();
+  new FormData(form).forEach((value, key) => {
+    if (key.startsWith('entry.')) data.append(key, value);
+  });
 
-    if (res.ok) {
-      status.classList.add('ok');
-      status.textContent = 'Thanks, your message was sent.';
-      form.reset();
-    } else {
-      throw new Error('Request failed');
-    }
+  try {
+    // Google Forms doesn't allow cross-origin reads, so the response is opaque.
+    // The request only rejects on a network failure.
+    await fetch(form.action, { method: 'POST', mode: 'no-cors', body: data });
+    status.classList.add('ok');
+    status.textContent = 'Thanks, your message was sent.';
+    form.reset();
   } catch (err) {
     status.classList.add('err');
     status.textContent = 'Something went wrong. Please email me directly.';
