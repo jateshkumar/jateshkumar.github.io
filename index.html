@@ -41,8 +41,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -118,6 +118,7 @@
       </div>
 
       <div class="live-strip">
+        <span class="hand-note note-live" aria-hidden="true">all real, all live &mdash; tap one<svg viewBox="0 0 60 40" width="46" height="30" aria-hidden="true"><path d="M4 8 C 22 2, 42 10, 50 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M41 26 L50 31 L53 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <p class="live-label"><span class="dot" aria-hidden="true"></span> live now</p>
         <div class="marquee">
           <div class="marquee-track">
@@ -161,503 +162,540 @@
       </div>
     </section>
 
-    <section id="services" class="section">
-      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">cat services.md</span></p>
-      <h2><span class="num">01</span> What I do</h2>
-      <div class="services">
-        <article class="service reveal">
-          <span class="service-cmd">&gt; ship</span>
-          <h3>Native apps, end to end</h3>
-          <p>I take iOS and macOS apps from concept to App Store release, covering architecture, core features, and the release itself. Zofeur was built this way and is now rated 4.8 on the App Store.</p>
-        </article>
-        <article class="service reveal">
-          <span class="service-cmd">&gt; stabilize</span>
-          <h3>Stability and performance</h3>
-          <p>I track down retain cycles and memory leaks, trim bundle size, and move codebases to Swift Concurrency. At PureSquare this raised crash-free users from 87% to 96%.</p>
-        </article>
-        <article class="service reveal">
-          <span class="service-cmd">&gt; automate</span>
-          <h3>CI/CD and release automation</h3>
-          <p>I build Fastlane and Azure DevOps pipelines that handle TestFlight uploads, macOS archiving, PKG generation, and notarization, plus feature flags for controlled rollouts.</p>
-        </article>
-        <article class="service reveal">
-          <span class="service-cmd">&gt; lead</span>
-          <h3>Technical leadership</h3>
-          <p>I lead a team of five engineers, set technical direction, review work, and bring AI-assisted workflows such as Claude Code into everyday delivery.</p>
-        </article>
+    <section id="services" class="section band">
+      <div class="section-head">
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">cat services.md</span></p>
+        <h2><span class="num">01</span> What I do</h2>
+        <p class="section-meta">Four things I'm hired for.</p>
       </div>
+      <div class="section-body">
+        <div class="services">
+          <article class="service reveal">
+            <span class="service-cmd">&gt; ship</span>
+            <h3>Native apps, end to end</h3>
+            <p>I take iOS and macOS apps from concept to App Store release, covering architecture, core features, and the release itself. Zofeur was built this way and is now rated 4.8 on the App Store.</p>
+          </article>
+          <article class="service reveal">
+            <span class="service-cmd">&gt; stabilize</span>
+            <h3>Stability and performance</h3>
+            <p>I track down retain cycles and memory leaks, trim bundle size, and move codebases to Swift Concurrency. At PureSquare this raised crash-free users from 87% to 96%.</p>
+          </article>
+          <article class="service reveal">
+            <span class="service-cmd">&gt; automate</span>
+            <h3>CI/CD and release automation</h3>
+            <p>I build Fastlane and Azure DevOps pipelines that handle TestFlight uploads, macOS archiving, PKG generation, and notarization, plus feature flags for controlled rollouts.</p>
+          </article>
+          <article class="service reveal">
+            <span class="service-cmd">&gt; lead</span>
+            <h3>Technical leadership</h3>
+            <p>I lead a team of five engineers, set technical direction, review work, and bring AI-assisted workflows such as Claude Code into everyday delivery.</p>
+          </article>
+        </div>
 
-      <aside class="freelance reveal">
-        <div>
-          <span class="service-cmd">&gt; freelance --open</span>
-          <h3>Need an iOS or macOS developer for a project?</h3>
-          <p>I take on select freelance work: new apps, feature development, stability and performance fixes, and App Store releases. Past clients on <a href="https://www.upwork.com/freelancers/~01549cd75e5e4d42bc" target="_blank" rel="noopener">Upwork<span class="sr-only"> (opens in a new tab)</span></a> and <a href="https://www.freelancer.pk/u/jateshkumar" target="_blank" rel="noopener">Freelancer.com<span class="sr-only"> (opens in a new tab)</span></a> rated my work 5.0.</p>
-        </div>
-        <div class="freelance-actions">
-          <a href="https://calendly.com/jateshkumarmaheshwari/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a 30-min call<span class="sr-only"> (opens in a new tab)</span></a>
-          <a href="#contact" class="btn btn-ghost">Send a message</a>
-        </div>
-      </aside>
+        <aside class="freelance reveal">
+          <div>
+            <span class="service-cmd">&gt; freelance --open</span>
+            <h3>Need an iOS or macOS developer for a project?</h3>
+            <p>I take on select freelance work: new apps, feature development, stability and performance fixes, and App Store releases. Past clients on <a href="https://www.upwork.com/freelancers/~01549cd75e5e4d42bc" target="_blank" rel="noopener">Upwork<span class="sr-only"> (opens in a new tab)</span></a> and <a href="https://www.freelancer.pk/u/jateshkumar" target="_blank" rel="noopener">Freelancer.com<span class="sr-only"> (opens in a new tab)</span></a> rated my work 5.0.</p>
+          </div>
+          <div class="freelance-actions">
+            <a href="https://calendly.com/jateshkumarmaheshwari/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a 30-min call<span class="sr-only"> (opens in a new tab)</span></a>
+            <a href="#contact" class="btn btn-ghost">Send a message</a>
+          </div>
+        </aside>
+      </div>
     </section>
 
     <section id="apps" class="section">
-      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">ls ~/apps --shipped</span></p>
-      <h2><span class="num">02</span> Apps</h2>
-      <h3 class="apps-sub"><span>//</span> iOS <small>App Store</small></h3>
-      <div class="grid">
-
-        <article class="card reveal">
-          <div class="shots">
-            <img src="assets/apps/purevpn-1.webp" alt="PureVPN App Store screenshot" width="300" height="649" loading="lazy">
-            <img src="assets/apps/purevpn-2.webp" alt="" width="300" height="649" loading="lazy">
-            <img src="assets/apps/purevpn-3.webp" alt="" width="300" height="649" loading="lazy">
-          </div>
-          <div class="card-head">
-            <img class="app-icon" src="assets/apps/purevpn-icon.png" alt="" width="128" height="128" loading="lazy">
-            <div>
-              <h3>PureVPN</h3>
-              <span class="tag">iOS</span>
-            </div>
-            <span class="rating">&#9733; 4.4 <small>(7.9K)</small></span>
-          </div>
-          <p>A consumer VPN with 6,500+ servers in 71+ countries, 256-bit encryption, WireGuard support, and Dark Web Monitoring and Password Manager features. I worked on the iOS app at PureSquare. The macOS app is below.</p>
-          <a href="https://apps.apple.com/us/app/purevpn-secure-vpn-for-iphone/id594506418" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-        </article>
-
-        <article class="card reveal">
-          <div class="shots">
-            <img src="assets/apps/puredome-1.webp" alt="PureDome App Store screenshot" width="300" height="649" loading="lazy">
-            <img src="assets/apps/puredome-2.webp" alt="" width="300" height="649" loading="lazy">
-            <img src="assets/apps/puredome-3.webp" alt="" width="300" height="649" loading="lazy">
-          </div>
-          <div class="card-head">
-            <img class="app-icon" src="assets/apps/puredome-icon.png" alt="" width="128" height="128" loading="lazy">
-            <div>
-              <h3>PureDome</h3>
-              <span class="tag">iOS</span>
-            </div>
-            <span class="rating">&#9733; 4.5 <small>(30)</small></span>
-          </div>
-          <p>A zero-trust business VPN with site-to-site tunnels, secure remote access, dedicated team IPs, and a centralized access dashboard. SSO support for Okta and Azure. I worked on the iOS app at PureSquare. The macOS app is below.</p>
-          <a href="https://apps.apple.com/us/app/puredome-zero-trust-security/id1601389848" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-        </article>
-
-        <article class="card reveal">
-          <div class="shots">
-            <img src="assets/apps/zofeur-1.webp" alt="Zofeur App Store screenshot" width="300" height="649" loading="lazy">
-            <img src="assets/apps/zofeur-2.webp" alt="" width="300" height="649" loading="lazy">
-            <img src="assets/apps/zofeur-3.webp" alt="" width="300" height="649" loading="lazy">
-          </div>
-          <div class="card-head">
-            <img class="app-icon" src="assets/apps/zofeur-icon.png" alt="" width="128" height="128" loading="lazy">
-            <div>
-              <h3>Zofeur</h3>
-              <span class="tag">iOS</span>
-            </div>
-            <span class="rating">&#9733; 4.8 <small>(465)</small></span>
-          </div>
-          <p>On-demand chauffeur booking across Dubai, Abu Dhabi, and Sharjah. I owned the app from concept to App Store release, built the core maps layer with Google Maps SDK and Core Location, and cut Maps API costs by roughly 89%.</p>
-          <div class="card-links">
-            <a href="zofeur.html" class="case-link">Read the case study &rarr;</a>
-            <a href="https://apps.apple.com/us/app/zofeur-hire-a-safe-driver/id1520275979" target="_blank" rel="noopener">App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="shots">
-            <img src="assets/apps/orko-1.webp" alt="ORKO Network App Store screenshot" width="300" height="649" loading="lazy">
-            <img src="assets/apps/orko-2.webp" alt="" width="300" height="649" loading="lazy">
-            <img src="assets/apps/orko-3.webp" alt="" width="300" height="649" loading="lazy">
-          </div>
-          <div class="card-head">
-            <img class="app-icon" src="assets/apps/orko-icon.png" alt="" width="128" height="128" loading="lazy">
-            <div>
-              <h3>ORKO Network</h3>
-              <span class="tag">iOS</span>
-            </div>
-            <span class="rating">&#9733; 5.0 <small>(2)</small></span>
-          </div>
-          <p>An EV charging app for Pakistan. Find stations, navigate to them with Google Maps, view charger details, and reserve slots. I built the UI, business logic, animations, and UX.</p>
-          <a href="https://apps.apple.com/us/app/orko-network/id1588216570" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-        </article>
-
-        <article class="card reveal">
-          <div class="shots">
-            <img src="assets/apps/merigari-1.webp" alt="Meri Gari App Store screenshot" width="300" height="649" loading="lazy">
-            <img src="assets/apps/merigari-2.webp" alt="" width="300" height="649" loading="lazy">
-            <img src="assets/apps/merigari-3.webp" alt="" width="300" height="649" loading="lazy">
-          </div>
-          <div class="card-head">
-            <img class="app-icon" src="assets/apps/merigari-icon.png" alt="" width="128" height="128" loading="lazy">
-            <div>
-              <h3>Meri Gari</h3>
-              <span class="tag">iOS</span>
-            </div>
-            <span class="rating">&#9733; 5.0 <small>(4)</small></span>
-          </div>
-          <p>A logistics app for managing cargo. Send queries to multiple carriers at once, place bids and offers, and track shipments with real-time milestones. I led development on this app.</p>
-          <a href="https://apps.apple.com/pk/app/meri-gari/id1631521260" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-        </article>
-
+      <div class="section-head">
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">ls ~/apps --shipped</span></p>
+        <h2><span class="num">02</span> Apps</h2>
+        <p class="section-meta">7 apps across iOS and macOS, all live today.</p>
       </div>
+      <div class="section-body">
+        <h3 class="apps-sub"><span>//</span> iOS <small>App Store</small></h3>
+        <div class="grid">
 
-      <h3 class="apps-sub"><span>//</span> macOS <small>Direct download &middot; signed and notarized</small></h3>
-      <div class="grid grid-mac">
-
-        <article class="card mac-card reveal">
-          <div class="mac-window" aria-hidden="true">
-            <div class="code-bar"><i></i><i></i><i></i><span>release &mdash; PureVPN.pkg</span></div>
-            <pre><span class="t-cmd">$ xcrun notarytool submit PureVPN.pkg --wait</span>
-<span class="t-step">  status: Accepted</span>
-<span class="t-cmd">$ spctl -a -vv /Applications/PureVPN.app</span>
-<span class="t-ok">  accepted &middot; source=Notarized Developer ID</span></pre>
-          </div>
-          <div class="card-head">
-            <img class="app-icon" src="assets/apps/purevpn-icon.png" alt="" width="128" height="128" loading="lazy">
-            <div>
-              <h3>PureVPN for Mac</h3>
-              <span class="tag">macOS 10.12 &ndash; 26</span>
+          <article class="card reveal">
+            <div class="shots">
+              <img src="assets/apps/purevpn-1.webp" alt="PureVPN App Store screenshot" width="300" height="649" loading="lazy">
+              <img src="assets/apps/purevpn-2.webp" alt="" width="300" height="649" loading="lazy">
+              <img src="assets/apps/purevpn-3.webp" alt="" width="300" height="649" loading="lazy">
             </div>
-          </div>
-          <p>The PureVPN desktop app for Mac. I redesigned the Dark Web Monitoring flows across iOS and macOS, shipped the Password Manager freemium feature, and automated macOS builds end to end: archiving, PKG generation, and notarization.</p>
-          <a href="https://www.purevpn.com/download/mac-vpn" target="_blank" rel="noopener">Download for Mac &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-        </article>
-
-        <article class="card mac-card reveal">
-          <div class="mac-window" aria-hidden="true">
-            <div class="code-bar"><i></i><i></i><i></i><span>release &mdash; PureDome.pkg</span></div>
-            <pre><span class="t-cmd">$ productbuild --sign "Developer ID Installer" PureDome.pkg</span>
-<span class="t-step">  Signed product archive</span>
-<span class="t-cmd">$ xcrun notarytool submit PureDome.pkg --wait</span>
-<span class="t-ok">  status: Accepted</span></pre>
-          </div>
-          <div class="card-head">
-            <img class="app-icon" src="assets/apps/puredome-icon.png" alt="" width="128" height="128" loading="lazy">
-            <div>
-              <h3>PureDome for Mac</h3>
-              <span class="tag">macOS &middot; PKG</span>
+            <div class="card-head">
+              <img class="app-icon" src="assets/apps/purevpn-icon.png" alt="" width="128" height="128" loading="lazy">
+              <div>
+                <h3>PureVPN</h3>
+                <span class="tag">iOS</span>
+                <span class="rating">&#9733; 4.4 <small>(7.9K)</small></span>
+              </div>
             </div>
-          </div>
-          <p>PureDome's zero-trust business VPN for Mac, giving teams secure remote access and dedicated fixed IPs. I worked on the macOS app and built the Fastlane and Azure DevOps pipeline for macOS archiving, PKG generation, and notarization.</p>
-          <a href="https://www.puredome.com/download" target="_blank" rel="noopener">Download for Mac &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-        </article>
+            <p>A consumer VPN with 6,500+ servers in 71+ countries, 256-bit encryption, WireGuard support, and Dark Web Monitoring and Password Manager features. I worked on the iOS app at PureSquare. The macOS app is below.</p>
+            <a href="https://apps.apple.com/us/app/purevpn-secure-vpn-for-iphone/id594506418" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
 
+          <article class="card reveal">
+            <div class="shots">
+              <img src="assets/apps/puredome-1.webp" alt="PureDome App Store screenshot" width="300" height="649" loading="lazy">
+              <img src="assets/apps/puredome-2.webp" alt="" width="300" height="649" loading="lazy">
+              <img src="assets/apps/puredome-3.webp" alt="" width="300" height="649" loading="lazy">
+            </div>
+            <div class="card-head">
+              <img class="app-icon" src="assets/apps/puredome-icon.png" alt="" width="128" height="128" loading="lazy">
+              <div>
+                <h3>PureDome</h3>
+                <span class="tag">iOS</span>
+                <span class="rating">&#9733; 4.5 <small>(30)</small></span>
+              </div>
+            </div>
+            <p>A zero-trust business VPN with site-to-site tunnels, secure remote access, dedicated team IPs, and a centralized access dashboard. SSO support for Okta and Azure. I worked on the iOS app at PureSquare. The macOS app is below.</p>
+            <a href="https://apps.apple.com/us/app/puredome-zero-trust-security/id1601389848" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+
+          <article class="card reveal has-note">
+            <span class="hand-note note-card" aria-hidden="true">my first app &mdash; shipped it solo as a trainee!<svg viewBox="0 0 60 40" width="46" height="30" aria-hidden="true"><path d="M4 8 C 22 2, 42 10, 50 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M41 26 L50 31 L53 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div class="shots">
+              <img src="assets/apps/zofeur-1.webp" alt="Zofeur App Store screenshot" width="300" height="649" loading="lazy">
+              <img src="assets/apps/zofeur-2.webp" alt="" width="300" height="649" loading="lazy">
+              <img src="assets/apps/zofeur-3.webp" alt="" width="300" height="649" loading="lazy">
+            </div>
+            <div class="card-head">
+              <img class="app-icon" src="assets/apps/zofeur-icon.png" alt="" width="128" height="128" loading="lazy">
+              <div>
+                <h3>Zofeur</h3>
+                <span class="tag">iOS</span>
+                <span class="rating">&#9733; 4.8 <small>(465)</small></span>
+              </div>
+            </div>
+            <p>On-demand chauffeur booking across Dubai, Abu Dhabi, and Sharjah. I owned the app from concept to App Store release, built the core maps layer with Google Maps SDK and Core Location, and cut Maps API costs by roughly 89%.</p>
+            <div class="card-links">
+              <a href="zofeur.html" class="case-link">Read the case study &rarr;</a>
+              <a href="https://apps.apple.com/us/app/zofeur-hire-a-safe-driver/id1520275979" target="_blank" rel="noopener">App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="shots">
+              <img src="assets/apps/orko-1.webp" alt="ORKO Network App Store screenshot" width="300" height="649" loading="lazy">
+              <img src="assets/apps/orko-2.webp" alt="" width="300" height="649" loading="lazy">
+              <img src="assets/apps/orko-3.webp" alt="" width="300" height="649" loading="lazy">
+            </div>
+            <div class="card-head">
+              <img class="app-icon" src="assets/apps/orko-icon.png" alt="" width="128" height="128" loading="lazy">
+              <div>
+                <h3>ORKO Network</h3>
+                <span class="tag">iOS</span>
+                <span class="rating">&#9733; 5.0 <small>(2)</small></span>
+              </div>
+            </div>
+            <p>An EV charging app for Pakistan. Find stations, navigate to them with Google Maps, view charger details, and reserve slots. I built the UI, business logic, animations, and UX.</p>
+            <a href="https://apps.apple.com/us/app/orko-network/id1588216570" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+
+          <article class="card reveal">
+            <div class="shots">
+              <img src="assets/apps/merigari-1.webp" alt="Meri Gari App Store screenshot" width="300" height="649" loading="lazy">
+              <img src="assets/apps/merigari-2.webp" alt="" width="300" height="649" loading="lazy">
+              <img src="assets/apps/merigari-3.webp" alt="" width="300" height="649" loading="lazy">
+            </div>
+            <div class="card-head">
+              <img class="app-icon" src="assets/apps/merigari-icon.png" alt="" width="128" height="128" loading="lazy">
+              <div>
+                <h3>Meri Gari</h3>
+                <span class="tag">iOS</span>
+                <span class="rating">&#9733; 5.0 <small>(4)</small></span>
+              </div>
+            </div>
+            <p>A logistics app for managing cargo. Send queries to multiple carriers at once, place bids and offers, and track shipments with real-time milestones. I led development on this app.</p>
+            <a href="https://apps.apple.com/pk/app/meri-gari/id1631521260" target="_blank" rel="noopener">View on App Store &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+
+        </div>
+
+        <h3 class="apps-sub"><span>//</span> macOS <small>Direct download &middot; signed and notarized</small></h3>
+        <div class="grid grid-mac">
+
+          <article class="card mac-card reveal">
+            <div class="mac-window" aria-hidden="true">
+              <div class="code-bar"><i></i><i></i><i></i><span>release &mdash; PureVPN.pkg</span></div>
+              <pre><span class="t-cmd">$ xcrun notarytool submit PureVPN.pkg --wait</span>
+  <span class="t-step">  status: Accepted</span>
+  <span class="t-cmd">$ spctl -a -vv /Applications/PureVPN.app</span>
+  <span class="t-ok">  accepted &middot; source=Notarized Developer ID</span></pre>
+            </div>
+            <div class="card-head">
+              <img class="app-icon" src="assets/apps/purevpn-icon.png" alt="" width="128" height="128" loading="lazy">
+              <div>
+                <h3>PureVPN for Mac</h3>
+                <span class="tag">macOS 10.12 &ndash; 26</span>
+              </div>
+            </div>
+            <p>The PureVPN desktop app for Mac. I redesigned the Dark Web Monitoring flows across iOS and macOS, shipped the Password Manager freemium feature, and automated macOS builds end to end: archiving, PKG generation, and notarization.</p>
+            <a href="https://www.purevpn.com/download/mac-vpn" target="_blank" rel="noopener">Download for Mac &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+
+          <article class="card mac-card reveal">
+            <div class="mac-window" aria-hidden="true">
+              <div class="code-bar"><i></i><i></i><i></i><span>release &mdash; PureDome.pkg</span></div>
+              <pre><span class="t-cmd">$ productbuild --sign "Developer ID Installer" PureDome.pkg</span>
+  <span class="t-step">  Signed product archive</span>
+  <span class="t-cmd">$ xcrun notarytool submit PureDome.pkg --wait</span>
+  <span class="t-ok">  status: Accepted</span></pre>
+            </div>
+            <div class="card-head">
+              <img class="app-icon" src="assets/apps/puredome-icon.png" alt="" width="128" height="128" loading="lazy">
+              <div>
+                <h3>PureDome for Mac</h3>
+                <span class="tag">macOS &middot; PKG</span>
+              </div>
+            </div>
+            <p>PureDome's zero-trust business VPN for Mac, giving teams secure remote access and dedicated fixed IPs. I worked on the macOS app and built the Fastlane and Azure DevOps pipeline for macOS archiving, PKG generation, and notarization.</p>
+            <a href="https://www.puredome.com/download" target="_blank" rel="noopener">Download for Mac &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+
+        </div>
       </div>
     </section>
 
-    <section id="impact" class="section">
-      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">./benchmark --before --after</span></p>
-      <h2><span class="num">03</span> Impact</h2>
-      <div class="cases">
-        <article class="case reveal">
+    <section id="impact" class="section band">
+      <div class="section-head">
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">./benchmark --before --after</span></p>
+        <h2><span class="num">03</span> Impact</h2>
+        <p class="section-meta">Real numbers from production apps.</p>
+      </div>
+      <div class="section-body">
+        <div class="cases">
+          <article class="case reveal">
+            <span class="hand-note note-case" aria-hidden="true">started with a $700 mistake<svg viewBox="0 0 60 40" width="46" height="30" aria-hidden="true"><path d="M4 8 C 22 2, 42 10, 50 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M41 26 L50 31 L53 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div class="case-metric"><strong>&minus;89%</strong><span>$27K &rarr; $3K / month</span></div>
-          <h3>Cutting Google Maps spend</h3>
-          <p class="case-ctx">Zofeur &middot; NextGenI</p>
-          <dl>
-            <dt>Challenge</dt>
-            <dd>Google Maps API usage was costing $27K a month.</dd>
-            <dt>Approach</dt>
-            <dd>Redesigned the Maps integration with intelligent caching, request throttling, and usage optimization.</dd>
-            <dt>Result</dt>
-            <dd>Monthly spend fell to $3K, roughly 89% lower.</dd>
-          </dl>
-          <a href="zofeur.html" class="case-more">Read the full Zofeur story &rarr;</a>
-        </article>
-        <article class="case reveal">
-          <div class="case-metric"><strong>87% &rarr; 96%</strong><span>crash-free users</span></div>
-          <h3>Making the apps stable</h3>
-          <p class="case-ctx">PureVPN and PureDome &middot; PureSquare</p>
-          <dl>
-            <dt>Challenge</dt>
-            <dd>Crash-free users sat at 87%.</dd>
-            <dt>Approach</dt>
-            <dd>Led stability work across iOS and macOS, resolving retain cycles and memory leaks.</dd>
-            <dt>Result</dt>
-            <dd>Crash-free users rose to 96%.</dd>
-          </dl>
-        </article>
-        <article class="case reveal">
-          <div class="case-metric"><strong>&minus;18%</strong><span>App Store package size</span></div>
-          <h3>Shrinking the app bundle</h3>
-          <p class="case-ctx">Zofeur &middot; NextGenI</p>
-          <dl>
-            <dt>Challenge</dt>
-            <dd>Unused resources, redundant modules, and dead code were inflating the download.</dd>
-            <dt>Approach</dt>
-            <dd>Audited the bundle and removed what the app no longer used.</dd>
-            <dt>Result</dt>
-            <dd>An 18% smaller App Store package and a better install experience.</dd>
-          </dl>
-        </article>
+            <h3>Cutting Google Maps spend</h3>
+            <p class="case-ctx">Zofeur &middot; NextGenI</p>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Google Maps API usage was costing $27K a month.</dd>
+              <dt>Approach</dt>
+              <dd>Redesigned the Maps integration with intelligent caching, request throttling, and usage optimization.</dd>
+              <dt>Result</dt>
+              <dd>Monthly spend fell to $3K, roughly 89% lower.</dd>
+            </dl>
+            <a href="zofeur.html" class="case-more">Read the full Zofeur story &rarr;</a>
+          </article>
+          <article class="case reveal">
+            <div class="case-metric"><strong>87% &rarr; 96%</strong><span>crash-free users</span></div>
+            <h3>Making the apps stable</h3>
+            <p class="case-ctx">PureVPN and PureDome &middot; PureSquare</p>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Crash-free users sat at 87%.</dd>
+              <dt>Approach</dt>
+              <dd>Led stability work across iOS and macOS, resolving retain cycles and memory leaks.</dd>
+              <dt>Result</dt>
+              <dd>Crash-free users rose to 96%.</dd>
+            </dl>
+          </article>
+          <article class="case reveal">
+            <div class="case-metric"><strong>&minus;18%</strong><span>App Store package size</span></div>
+            <h3>Shrinking the app bundle</h3>
+            <p class="case-ctx">Zofeur &middot; NextGenI</p>
+            <dl>
+              <dt>Challenge</dt>
+              <dd>Unused resources, redundant modules, and dead code were inflating the download.</dd>
+              <dt>Approach</dt>
+              <dd>Audited the bundle and removed what the app no longer used.</dd>
+              <dt>Result</dt>
+              <dd>An 18% smaller App Store package and a better install experience.</dd>
+            </dl>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="experience" class="section">
-      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">git log --author="jatesh" --career</span></p>
-      <h2><span class="num">04</span> Experience</h2>
-      <ol class="timeline">
+      <div class="section-head">
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">git log --author="jatesh" --career</span></p>
+        <h2><span class="num">04</span> Experience</h2>
+        <p class="section-meta">5+ years &middot; 3 companies &middot; from trainee to Staff Engineer.</p>
+      </div>
+      <div class="section-body">
+        <ol class="timeline">
 
-        <li class="current reveal">
-          <div class="when"><span class="now"><span class="dot" aria-hidden="true"></span>Current</span> Sep 2026 &ndash; Present</div>
-          <h3>Deputy Manager (Staff Engineer), AI/ML Automation <span class="org">&middot; Ideas Private Limited</span></h3>
-          <ul>
-            <li>Leading a team of 5 engineers building organization-wide tools across multiple platforms, setting technical direction, decision making and reviewing work.</li>
-            <li>Implemented native iOS CallKit integration in Swift for a React Native app, enabling incoming-call UI on the lock screen.</li>
-            <li>Building an internal prompt library app in Flutter for organization-wide use, giving teams a shared, searchable collection of vetted AI prompts.</li>
-            <li>Adopting AI-assisted development workflows across the team, using tools such as Claude Code to accelerate feature delivery and MVPs.</li>
-          </ul>
-        </li>
+          <li class="current reveal">
+            <div class="when"><span class="now"><span class="dot" aria-hidden="true"></span>Current</span> Sep 2026 &ndash; Present</div>
+            <h3>Deputy Manager (Staff Engineer), AI/ML Automation <span class="org">&middot; Ideas Private Limited</span></h3>
+            <ul>
+              <li>Leading a team of 5 engineers building organization-wide tools across multiple platforms, setting technical direction, decision making and reviewing work.</li>
+              <li>Implemented native iOS CallKit integration in Swift for a React Native app, enabling incoming-call UI on the lock screen.</li>
+              <li>Building an internal prompt library app in Flutter for organization-wide use, giving teams a shared, searchable collection of vetted AI prompts.</li>
+              <li>Adopting AI-assisted development workflows across the team, using tools such as Claude Code to accelerate feature delivery and MVPs.</li>
+            </ul>
+          </li>
 
-        <li class="reveal">
-          <div class="when">Mar 2023 &ndash; Sep 2026</div>
-          <h3>Senior Engineer, iOS/macOS <span class="org">&middot; PureSquare (Disrupt.com)</span></h3>
-          <ul>
-            <li>Redesigned Dark Web Monitoring journeys across iOS and macOS by simplifying UI flows and reducing breach resolution steps, and implemented a Password Manager freemium feature, driving higher user retention and recurring purchases.</li>
-            <li>Implemented a CI/CD pipeline using Fastlane and Azure DevOps for iOS and macOS, automating TestFlight uploads for iOS and end-to-end macOS builds including archiving, PKG generation, and notarization.</li>
-            <li>Championed adoption of TDD practices across iOS and macOS codebases, increasing test coverage by 20%.</li>
-            <li>Led stability improvements by resolving retain cycles and memory leaks, raising crash-free users from 87% to 96%.</li>
-            <li>Integrated SwiftUI with UIKit-based architecture for new modules, enabling modular UI development, better state management, and enhanced UX consistency.</li>
-            <li>Refactored legacy completion-handler-based networking to Swift Concurrency (async/await), reducing callback nesting and improving maintainability and execution efficiency.</li>
-            <li>Designed and implemented a feature flag system enabling controlled rollouts, A/B testing, and remote feature toggling without app releases.</li>
-            <li>Led technical planning and architectural decision-making during sprint cycles, planning, and backlog grooming, ensuring scalable design and timely feature delivery.</li>
-          </ul>
-        </li>
+          <li class="reveal">
+            <div class="when">Mar 2023 &ndash; Sep 2026</div>
+            <h3>Senior Engineer, iOS/macOS <span class="org">&middot; PureSquare (Disrupt.com)</span></h3>
+            <ul>
+              <li>Redesigned Dark Web Monitoring journeys across iOS and macOS by simplifying UI flows and reducing breach resolution steps, and implemented a Password Manager freemium feature, driving higher user retention and recurring purchases.</li>
+              <li>Implemented a CI/CD pipeline using Fastlane and Azure DevOps for iOS and macOS, automating TestFlight uploads for iOS and end-to-end macOS builds including archiving, PKG generation, and notarization.</li>
+              <li>Championed adoption of TDD practices across iOS and macOS codebases, increasing test coverage by 20%.</li>
+              <li>Led stability improvements by resolving retain cycles and memory leaks, raising crash-free users from 87% to 96%.</li>
+              <li>Integrated SwiftUI with UIKit-based architecture for new modules, enabling modular UI development, better state management, and enhanced UX consistency.</li>
+              <li>Refactored legacy completion-handler-based networking to Swift Concurrency (async/await), reducing callback nesting and improving maintainability and execution efficiency.</li>
+              <li>Designed and implemented a feature flag system enabling controlled rollouts, A/B testing, and remote feature toggling without app releases.</li>
+              <li>Led technical planning and architectural decision-making during sprint cycles, planning, and backlog grooming, ensuring scalable design and timely feature delivery.</li>
+            </ul>
+          </li>
 
-        <li class="reveal">
-          <div class="when">Feb 2021 &ndash; Mar 2023</div>
-          <h3>iOS Engineer <span class="org">&middot; Next Generation Innovation (NextGenI)</span></h3>
-          <ul>
-            <li>Owned the iOS app for Zofeur, an early-stage product, taking it from concept to App Store release and driving technical decisions, feature development, and core architecture.</li>
-            <li>Designed and implemented the core maps layer using Google Maps SDK and Core Location, including driver and user tracking, geofencing, and map-driven flows.</li>
-            <li>Implemented polylines and custom overlays to visualize trip routes, driver approach, and live trip progress.</li>
-            <li>Redesigned Google Maps API integration with intelligent caching, request throttling, and usage optimization, cutting monthly infrastructure costs by roughly 89%.</li>
-            <li>Worked closely with designers and product to iterate on map UX, motion, and transitions, rapidly testing and refining new mapping experiences.</li>
-            <li>Designed a scalable MVVM-based modular architecture with reusable feature components that became the standard across multiple iOS projects within the organization, improving scalability and reducing setup time.</li>
-            <li>Onboarded and trained a new team member while contributing to Zofeur and two additional applications, improving delivery velocity and code quality.</li>
-            <li>Optimized app bundle size by eliminating unused resources, redundant modules, and dead code, improving install experience and reducing App Store package size by 18%.</li>
-          </ul>
-        </li>
+          <li class="reveal">
+            <div class="when">Feb 2021 &ndash; Mar 2023</div>
+            <h3>iOS Engineer <span class="org">&middot; Next Generation Innovation (NextGenI)</span></h3>
+            <ul>
+              <li>Owned the iOS app for Zofeur, an early-stage product, taking it from concept to App Store release and driving technical decisions, feature development, and core architecture.</li>
+              <li>Designed and implemented the core maps layer using Google Maps SDK and Core Location, including driver and user tracking, geofencing, and map-driven flows.</li>
+              <li>Implemented polylines and custom overlays to visualize trip routes, driver approach, and live trip progress.</li>
+              <li>Redesigned Google Maps API integration with intelligent caching, request throttling, and usage optimization, cutting monthly infrastructure costs by roughly 89%.</li>
+              <li>Worked closely with designers and product to iterate on map UX, motion, and transitions, rapidly testing and refining new mapping experiences.</li>
+              <li>Designed a scalable MVVM-based modular architecture with reusable feature components that became the standard across multiple iOS projects within the organization, improving scalability and reducing setup time.</li>
+              <li>Onboarded and trained a new team member while contributing to Zofeur and two additional applications, improving delivery velocity and code quality.</li>
+              <li>Optimized app bundle size by eliminating unused resources, redundant modules, and dead code, improving install experience and reducing App Store package size by 18%.</li>
+            </ul>
+          </li>
 
-      </ol>
+        </ol>
+      </div>
     </section>
 
-    <section id="testimonials" class="section">
-      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">grep -ri "recommend" linkedin/ reviews/</span></p>
-      <h2><span class="num">05</span> What people say</h2>
+    <section id="testimonials" class="section band">
+      <div class="section-head">
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">grep -ri "recommend" linkedin/ reviews/</span></p>
+        <h2><span class="num">05</span> What people say</h2>
+        <p class="section-meta">6 LinkedIn recommendations &middot; 5 client reviews.</p>
+      </div>
+      <div class="section-body">
 
-      <h3 class="apps-sub"><span>//</span> Managers &amp; colleagues <small>LinkedIn recommendations</small></h3>
-      <div class="reviews recs">
-        <div class="rec-col">
-          <figure class="review rec reveal">
-            <blockquote>
-              <p>I had the pleasure of leading Jatesh on a project, and I can confidently state that he is an outstanding iOS developer. Jatesh consistently demonstrated a remarkable ability to:</p>
-              <ul>
-                <li>Develop high-quality, user-friendly iOS applications.</li>
-                <li>Proactively identify and resolve complex technical challenges.</li>
-                <li>Effectively communicate and collaborate within a fast-paced team environment.</li>
-                <li>Demonstrate a strong work ethic and a positive, can-do attitude.</li>
-              </ul>
-              <p>Jatesh is a valuable asset to any organization seeking a talented and dedicated iOS developer.</p>
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">SA</span>
-              <span><strong>Shahid Ali</strong><span>Project Manager</span><span class="rel">Managed Jatesh directly</span></span>
-            </figcaption>
-          </figure>
-          <figure class="review rec reveal">
-            <blockquote>
-              <p>One of Jatesh's standout qualities is their ability to collaborate effectively within our team. They consistently bring a positive and proactive attitude to the table, making them not only a reliable team member but also a joy to work with. He is always willing to share knowledge and insights, fostering a collaborative and innovative environment within the team.</p>
-              <p>Jatesh has a keen eye for detail and a commitment to producing code that is not only functional but also scalable and maintainable. Their dedication to staying up-to-date with the latest industry trends and best practices is evident in the consistently high-quality output that they deliver.</p>
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">MG</span>
-              <span><strong>Muhammad Ali Ghaffar</strong><span>Lead Software Engineer, Android/Linux &middot; PureSquare</span><span class="rel">Worked with Jatesh on the same team</span></span>
-            </figcaption>
-          </figure>
+        <h3 class="apps-sub"><span>//</span> Managers &amp; colleagues <small>LinkedIn recommendations</small></h3>
+        <div class="reviews recs">
+          <div class="rec-col">
+            <figure class="review rec reveal">
+              <blockquote>
+                <p>I had the pleasure of leading Jatesh on a project, and I can confidently state that he is an outstanding iOS developer. Jatesh consistently demonstrated a remarkable ability to:</p>
+                <ul>
+                  <li>Develop high-quality, user-friendly iOS applications.</li>
+                  <li>Proactively identify and resolve complex technical challenges.</li>
+                  <li>Effectively communicate and collaborate within a fast-paced team environment.</li>
+                  <li>Demonstrate a strong work ethic and a positive, can-do attitude.</li>
+                </ul>
+                <p>Jatesh is a valuable asset to any organization seeking a talented and dedicated iOS developer.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">SA</span>
+                <span><strong>Shahid Ali</strong><span>Project Manager</span><span class="rel">Managed Jatesh directly</span></span>
+              </figcaption>
+            </figure>
+            <figure class="review rec reveal">
+              <blockquote>
+                <p>One of Jatesh's standout qualities is their ability to collaborate effectively within our team. They consistently bring a positive and proactive attitude to the table, making them not only a reliable team member but also a joy to work with. He is always willing to share knowledge and insights, fostering a collaborative and innovative environment within the team.</p>
+                <p>Jatesh has a keen eye for detail and a commitment to producing code that is not only functional but also scalable and maintainable. Their dedication to staying up-to-date with the latest industry trends and best practices is evident in the consistently high-quality output that they deliver.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">MG</span>
+                <span><strong>Muhammad Ali Ghaffar</strong><span>Lead Software Engineer, Android/Linux &middot; PureSquare</span><span class="rel">Worked with Jatesh on the same team</span></span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="rec-col">
+            <figure class="review rec reveal">
+              <blockquote>
+                <p>I highly recommend [Jatesh] for any iOS development opportunities. [Jatesh] is a skilled and talented iOS engineer with a strong command over Swift, SwiftUI, UIKit and Objective-C. He is deeply technical with the passion for learning and problem-solving.</p>
+                <p>During our time working together at PureSquare, I was consistently impressed by [Jatesh]'s ability to:</p>
+                <ul>
+                  <li><strong>Grasp complex technical concepts quickly:</strong> He is a fast learner who can effectively adapt to new technologies and frameworks.</li>
+                  <li><strong>Solve problems efficiently:</strong> He approaches challenges with a logical and analytical mind, consistently finding creative solutions.</li>
+                  <li><strong>Demonstrate a strong work ethic:</strong> [Jatesh] is always eager to take on new tasks and is highly motivated to deliver high-quality results.</li>
+                </ul>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">FA</span>
+                <span><strong>Farhaj Ahmed</strong><span>Senior iOS Engineer &middot; ex-Disrupt.com</span><span class="rel">Worked with Jatesh at PureSquare</span></span>
+              </figcaption>
+            </figure>
+            <figure class="review rec reveal">
+              <blockquote>
+                <p>Mr Jatesh Kumar has been a kind friend and a fellow IT enthusiast&hellip; As a person, he is kind person with charismatic personality. His day to day interaction shows a great deal of potential for problem solving and always keen to learn. He possesses the best of the qualities of time management, personal skills, grit and hardworking.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">FK</span>
+                <span><strong>Farooque Hassan Kumbhar, Ph.D, SMIEEE</strong><span>Researcher and educator &middot; AI &amp; wireless systems</span><span class="rel">Jatesh&rsquo;s mentor</span></span>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="rec-col">
+            <figure class="review rec reveal">
+              <blockquote>
+                <p>I had the pleasure of working with Jatesh Kumar Maheshwari as part of the same team, with me as the technical lead. He is an outstanding iOS engineer whose skills, commitment, and problem-solving abilities are outstanding. Jatesh always shows the extraordinary ability to deal with complex challenges.</p>
+                <p>&hellip; He always wants to explore new technologies and methods that not only improve his work but also improve team performance.</p>
+                <p>&hellip; His ability to combine technical excellence with a passion for innovation ensures that he continues to excel and achieve outstanding results in any environment. It has been an honor to work with him!</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">MD</span>
+                <span><strong>Maha Dev</strong><span>Backend Team Lead</span><span class="rel">Managed Jatesh directly</span></span>
+              </figcaption>
+            </figure>
+            <figure class="review rec reveal">
+              <blockquote>
+                <p>I had the pleasure of working closely with Jatesh on multiple projects, and I wholeheartedly recommend him as an outstanding programmer. His technical skills, dedication, and collaborative approach significantly contributed to the success of our projects.</p>
+                <p>I am confident that Jatesh would be a tremendous asset to any project or team. His technical proficiency, combined with his collaborative and positive attitude, make him an ideal colleague. I recommend Jatesh without hesitation.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">SK</span>
+                <span><strong>Syed Asad Ali Kazmi</strong><span>Sr. iOS Applications Engineer &middot; NextGenI</span><span class="rel">Worked with Jatesh on the same team</span></span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
-        <div class="rec-col">
-          <figure class="review rec reveal">
-            <blockquote>
-              <p>I highly recommend [Jatesh] for any iOS development opportunities. [Jatesh] is a skilled and talented iOS engineer with a strong command over Swift, SwiftUI, UIKit and Objective-C. He is deeply technical with the passion for learning and problem-solving.</p>
-              <p>During our time working together at PureSquare, I was consistently impressed by [Jatesh]'s ability to:</p>
-              <ul>
-                <li><strong>Grasp complex technical concepts quickly:</strong> He is a fast learner who can effectively adapt to new technologies and frameworks.</li>
-                <li><strong>Solve problems efficiently:</strong> He approaches challenges with a logical and analytical mind, consistently finding creative solutions.</li>
-                <li><strong>Demonstrate a strong work ethic:</strong> [Jatesh] is always eager to take on new tasks and is highly motivated to deliver high-quality results.</li>
-              </ul>
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">FA</span>
-              <span><strong>Farhaj Ahmed</strong><span>Senior iOS Engineer &middot; ex-Disrupt.com</span><span class="rel">Worked with Jatesh at PureSquare</span></span>
-            </figcaption>
-          </figure>
-          <figure class="review rec reveal">
-            <blockquote>
-              <p>Mr Jatesh Kumar has been a kind friend and a fellow IT enthusiast&hellip; As a person, he is kind person with charismatic personality. His day to day interaction shows a great deal of potential for problem solving and always keen to learn. He possesses the best of the qualities of time management, personal skills, grit and hardworking.</p>
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">FK</span>
-              <span><strong>Farooque Hassan Kumbhar, Ph.D, SMIEEE</strong><span>Researcher and educator &middot; AI &amp; wireless systems</span><span class="rel">Jatesh&rsquo;s mentor</span></span>
-            </figcaption>
-          </figure>
+        <div class="review-links after">
+          <a href="https://www.linkedin.com/in/jkmaheshwari/details/recommendations/" target="_blank" rel="noopener" class="btn btn-ghost">All recommendations on LinkedIn &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
-        <div class="rec-col">
-          <figure class="review rec reveal">
-            <blockquote>
-              <p>I had the pleasure of working with Jatesh Kumar Maheshwari as part of the same team, with me as the technical lead. He is an outstanding iOS engineer whose skills, commitment, and problem-solving abilities are outstanding. Jatesh always shows the extraordinary ability to deal with complex challenges.</p>
-              <p>&hellip; He always wants to explore new technologies and methods that not only improve his work but also improve team performance.</p>
-              <p>&hellip; His ability to combine technical excellence with a passion for innovation ensures that he continues to excel and achieve outstanding results in any environment. It has been an honor to work with him!</p>
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">MD</span>
-              <span><strong>Maha Dev</strong><span>Backend Team Lead</span><span class="rel">Managed Jatesh directly</span></span>
-            </figcaption>
-          </figure>
-          <figure class="review rec reveal">
-            <blockquote>
-              <p>I had the pleasure of working closely with Jatesh on multiple projects, and I wholeheartedly recommend him as an outstanding programmer. His technical skills, dedication, and collaborative approach significantly contributed to the success of our projects.</p>
-              <p>I am confident that Jatesh would be a tremendous asset to any project or team. His technical proficiency, combined with his collaborative and positive attitude, make him an ideal colleague. I recommend Jatesh without hesitation.</p>
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">SK</span>
-              <span><strong>Syed Asad Ali Kazmi</strong><span>Sr. iOS Applications Engineer &middot; NextGenI</span><span class="rel">Worked with Jatesh on the same team</span></span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="review-links after">
-        <a href="https://www.linkedin.com/in/jkmaheshwari/details/recommendations/" target="_blank" rel="noopener" class="btn btn-ghost">All recommendations on LinkedIn &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-      </div>
 
-      <h3 class="apps-sub"><span>//</span> Freelance clients <small>Upwork &amp; Freelancer.com &middot; every review rated 5.0</small></h3>
-      <div class="review-links">
-        <a href="https://www.upwork.com/freelancers/~01549cd75e5e4d42bc" target="_blank" rel="noopener" class="btn btn-ghost">Upwork profile &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-        <a href="https://www.freelancer.pk/u/jateshkumar" target="_blank" rel="noopener" class="btn btn-ghost">Freelancer.com profile &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
-      </div>
-      <div class="reviews">
-        <figure class="review featured reveal">
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            <p>I had a fantastic experience working with Jatesh on my project. His technical skills are top-notch, and he transformed my vision into a user-friendly app. Communication was seamless, and his passion for delivering quality work was evident throughout. He delivered project before deadline. I highly recommend Jatesh Kumar for anyone in need of an exceptional iOS/MacOS developer!</p>
-          </blockquote>
-          <figcaption><strong>Upwork client</strong><span>Modification of Mac App &middot; Dec 2023</span></figcaption>
-        </figure>
-        <figure class="review reveal">
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            <p>Jatesh was extremely professional with the job completed, on time. Knew exactly what had to be done, and was willing to do slight edits without any hesitation. Surely someone I would work with again, in the future. Thanks!</p>
-          </blockquote>
-          <figcaption><strong>Aslam Q.</strong><span>UAE &middot; Freelancer.com</span></figcaption>
-        </figure>
-        <figure class="review reveal">
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            <p>Very Professional Freelancer, I'll definitely work with you again, thanks</p>
-          </blockquote>
-          <figcaption><strong>Yang T.</strong><span>iOS Swift development &middot; Freelancer.com</span></figcaption>
-        </figure>
-        <figure class="review reveal">
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            <p>Excellent Freelancer, will continue working with him!</p>
-          </blockquote>
-          <figcaption><strong>Md A.</strong><span>iOS UI components &middot; Freelancer.com</span></figcaption>
-        </figure>
-        <figure class="review reveal">
-          <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <blockquote>
-            <p>Thanks for the good job. Fast and efficient, recommended!</p>
-          </blockquote>
-          <figcaption><strong>Alfredo P.</strong><span>Argentina &middot; Freelancer.com</span></figcaption>
-        </figure>
+        <h3 class="apps-sub"><span>//</span> Freelance clients <small>Upwork &amp; Freelancer.com &middot; every review rated 5.0</small></h3>
+        <div class="review-links">
+          <a href="https://www.upwork.com/freelancers/~01549cd75e5e4d42bc" target="_blank" rel="noopener" class="btn btn-ghost">Upwork profile &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+          <a href="https://www.freelancer.pk/u/jateshkumar" target="_blank" rel="noopener" class="btn btn-ghost">Freelancer.com profile &rarr;<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+        <div class="reviews">
+          <figure class="review featured reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>
+              <p>I had a fantastic experience working with Jatesh on my project. His technical skills are top-notch, and he transformed my vision into a user-friendly app. Communication was seamless, and his passion for delivering quality work was evident throughout. He delivered project before deadline. I highly recommend Jatesh Kumar for anyone in need of an exceptional iOS/MacOS developer!</p>
+            </blockquote>
+            <figcaption><strong>Upwork client</strong><span>Modification of Mac App &middot; Dec 2023</span></figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>
+              <p>Jatesh was extremely professional with the job completed, on time. Knew exactly what had to be done, and was willing to do slight edits without any hesitation. Surely someone I would work with again, in the future. Thanks!</p>
+            </blockquote>
+            <figcaption><strong>Aslam Q.</strong><span>UAE &middot; Freelancer.com</span></figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>
+              <p>Very Professional Freelancer, I'll definitely work with you again, thanks</p>
+            </blockquote>
+            <figcaption><strong>Yang T.</strong><span>iOS Swift development &middot; Freelancer.com</span></figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>
+              <p>Excellent Freelancer, will continue working with him!</p>
+            </blockquote>
+            <figcaption><strong>Md A.</strong><span>iOS UI components &middot; Freelancer.com</span></figcaption>
+          </figure>
+          <figure class="review reveal">
+            <div class="stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>
+              <p>Thanks for the good job. Fast and efficient, recommended!</p>
+            </blockquote>
+            <figcaption><strong>Alfredo P.</strong><span>Argentina &middot; Freelancer.com</span></figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <section id="skills" class="section">
-      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">swift package show-dependencies</span></p>
-      <h2><span class="num">06</span> Skills</h2>
-      <div class="skills">
-        <div class="skill-group reveal">
-          <h3>Languages &amp; Frameworks</h3>
-          <div class="chips">
-            <span>Swift</span><span>Objective-C</span><span>SwiftUI</span><span>UIKit</span><span>Combine</span><span>Core Data</span><span>MapKit</span><span>Core Location</span><span>WidgetKit</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Architecture &amp; Concurrency</h3>
-          <div class="chips">
-            <span>MVVM</span><span>Clean Architecture</span><span>Swift Concurrency</span><span>Actors</span><span>GCD</span><span>Dependency Injection</span><span>Feature Flags</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>macOS &amp; Performance</h3>
-          <div class="chips">
-            <span>AppKit</span><span>Notarization</span><span>PKG Packaging</span><span>Code Signing</span><span>Instruments</span><span>ARC</span><span>Push Notifications</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>DevOps &amp; Testing</h3>
-          <div class="chips">
-            <span>Fastlane</span><span>GitHub Actions</span><span>Azure DevOps</span><span>XCTest</span><span>TDD</span><span>Firebase Crashlytics</span><span>SPM</span><span>CocoaPods</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Payments &amp; Security</h3>
-          <div class="chips">
-            <span>StoreKit</span><span>Apple Pay</span><span>Stripe</span><span>Keychain</span><span>SSL Pinning</span>
-          </div>
-        </div>
-        <div class="skill-group reveal">
-          <h3>AI-Assisted Development</h3>
-          <div class="chips">
-            <span>Claude Code</span><span>Cursor</span><span>Prompt Engineering</span><span>Flutter</span><span>React Native</span>
-          </div>
-        </div>
+      <div class="section-head">
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">swift package show-dependencies</span></p>
+        <h2><span class="num">06</span> Skills</h2>
+        <p class="section-meta">The tools I reach for every day.</p>
       </div>
+      <div class="section-body">
+        <div class="skills">
+          <div class="skill-group reveal">
+            <h3>Languages &amp; Frameworks</h3>
+            <div class="chips">
+              <span>Swift</span><span>Objective-C</span><span>SwiftUI</span><span>UIKit</span><span>Combine</span><span>Core Data</span><span>MapKit</span><span>Core Location</span><span>WidgetKit</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Architecture &amp; Concurrency</h3>
+            <div class="chips">
+              <span>MVVM</span><span>Clean Architecture</span><span>Swift Concurrency</span><span>Actors</span><span>GCD</span><span>Dependency Injection</span><span>Feature Flags</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>macOS &amp; Performance</h3>
+            <div class="chips">
+              <span>AppKit</span><span>Notarization</span><span>PKG Packaging</span><span>Code Signing</span><span>Instruments</span><span>ARC</span><span>Push Notifications</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>DevOps &amp; Testing</h3>
+            <div class="chips">
+              <span>Fastlane</span><span>GitHub Actions</span><span>Azure DevOps</span><span>XCTest</span><span>TDD</span><span>Firebase Crashlytics</span><span>SPM</span><span>CocoaPods</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Payments &amp; Security</h3>
+            <div class="chips">
+              <span>StoreKit</span><span>Apple Pay</span><span>Stripe</span><span>Keychain</span><span>SSL Pinning</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <h3>AI-Assisted Development</h3>
+            <div class="chips">
+              <span>Claude Code</span><span>Cursor</span><span>Prompt Engineering</span><span>Flutter</span><span>React Native</span>
+            </div>
+          </div>
+        </div>
 
-      <div class="education reveal">
-        <h3>Education</h3>
-        <p><strong>BE, Computer Systems Engineering</strong> &middot; Mehran University of Engineering and Technology, Jamshoro &middot; 2016&ndash;2019 &middot; GPA 3.70</p>
+        <div class="education reveal">
+          <h3>Education</h3>
+          <p><strong>BE, Computer Systems Engineering</strong> &middot; Mehran University of Engineering and Technology, Jamshoro &middot; 2016&ndash;2019 &middot; GPA 3.70</p>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="section contact">
-      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">./contact --remote --freelance</span></p>
-      <h2><span class="num">07</span> Contact</h2>
-      <p class="contact-lead">Hiring for a remote role, or need an iOS or macOS developer for a freelance project? Book a call or send a message and I'll get back to you.</p>
-      <a href="https://calendly.com/jateshkumarmaheshwari/30min" target="_blank" rel="noopener" class="book-call">
-        <span class="book-icon" aria-hidden="true">&#9719;</span>
-        <span><strong>Book a 30-minute call</strong><small>Pick a time that suits you on Calendly &middot; free intro chat</small></span>
-        <span class="book-arrow" aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in a new tab)</span>
-      </a>
+      <div class="section-head">
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">./contact --remote --freelance</span></p>
+        <h2><span class="num">07</span> Contact</h2>
+        <p class="section-meta">Karachi, UTC+5 &middot; I work across time zones.</p>
+      </div>
+      <div class="section-body">
+        <p class="contact-lead">Hiring for a remote role, or need an iOS or macOS developer for a freelance project? Book a call or send a message and I'll get back to you.</p>
+        <a href="https://calendly.com/jateshkumarmaheshwari/30min" target="_blank" rel="noopener" class="book-call">
+          <span class="book-icon" aria-hidden="true">&#9719;</span>
+          <span><strong>Book a 30-minute call</strong><small>Pick a time that suits you on Calendly &middot; free intro chat</small></span>
+          <span class="book-arrow" aria-hidden="true">&rarr;</span><span class="sr-only"> (opens in a new tab)</span>
+        </a>
 
-      <div class="contact-wrap">
-        <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfF9B4efpykJt9Wj1GjltPPwBxxgweakvXoLYcMWcSIYWyYsw/formResponse" method="POST">
-          <label>
-            <span>Name</span>
-            <input type="text" name="entry.817197740" required autocomplete="name">
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="entry.535239536" required autocomplete="email">
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea name="entry.797285554" rows="5" required></textarea>
-          </label>
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
-          <button type="submit" class="btn btn-primary">Send message</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="contact-wrap">
+          <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfF9B4efpykJt9Wj1GjltPPwBxxgweakvXoLYcMWcSIYWyYsw/formResponse" method="POST">
+            <label>
+              <span>Name</span>
+              <input type="text" name="entry.817197740" required autocomplete="name">
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="entry.535239536" required autocomplete="email">
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="entry.797285554" rows="5" required></textarea>
+            </label>
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
 
-        <div class="contact-links">
-          <a href="https://calendly.com/jateshkumarmaheshwari/30min" target="_blank" rel="noopener"><span class="label">calendly</span>Book a 30-min call<span class="sr-only"> (opens in a new tab)</span></a>
-          <a href="mailto:jateshkumarmaheshwari@gmail.com"><span class="label">email</span>jateshkumarmaheshwari@gmail.com</a>
-          <a href="https://www.linkedin.com/in/jkmaheshwari" target="_blank" rel="noopener"><span class="label">linkedin</span>linkedin.com/in/jkmaheshwari</a>
-          <a href="https://github.com/jateshkumar" target="_blank" rel="noopener"><span class="label">github</span>github.com/jateshkumar</a>
-          <a href="https://www.upwork.com/freelancers/~01549cd75e5e4d42bc" target="_blank" rel="noopener"><span class="label">upwork</span>Hire me on Upwork<span class="sr-only"> (opens in a new tab)</span></a>
-          <a href="https://www.freelancer.pk/u/jateshkumar" target="_blank" rel="noopener"><span class="label">freelancer</span>freelancer.pk/u/jateshkumar<span class="sr-only"> (opens in a new tab)</span></a>
-          <p><span class="label">location</span>Karachi, Pakistan &middot; Open to remote roles and freelance projects across all time zones</p>
+          <div class="contact-links">
+            <a href="https://calendly.com/jateshkumarmaheshwari/30min" target="_blank" rel="noopener"><span class="label">calendly</span>Book a 30-min call<span class="sr-only"> (opens in a new tab)</span></a>
+            <a href="mailto:jateshkumarmaheshwari@gmail.com"><span class="label">email</span>jateshkumarmaheshwari@gmail.com</a>
+            <a href="https://www.linkedin.com/in/jkmaheshwari" target="_blank" rel="noopener"><span class="label">linkedin</span>linkedin.com/in/jkmaheshwari</a>
+            <a href="https://github.com/jateshkumar" target="_blank" rel="noopener"><span class="label">github</span>github.com/jateshkumar</a>
+            <a href="https://www.upwork.com/freelancers/~01549cd75e5e4d42bc" target="_blank" rel="noopener"><span class="label">upwork</span>Hire me on Upwork<span class="sr-only"> (opens in a new tab)</span></a>
+            <a href="https://www.freelancer.pk/u/jateshkumar" target="_blank" rel="noopener"><span class="label">freelancer</span>freelancer.pk/u/jateshkumar<span class="sr-only"> (opens in a new tab)</span></a>
+            <p><span class="label">location</span>Karachi, Pakistan &middot; Open to remote roles and freelance projects across all time zones</p>
+          </div>
         </div>
       </div>
     </section>
