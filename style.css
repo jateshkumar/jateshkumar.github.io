@@ -451,8 +451,9 @@ main, .footer {
 
 .apps-sub {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 10px;
+  gap: 4px 10px;
   font-size: 18px;
   margin: 0 0 18px;
 }
@@ -812,12 +813,23 @@ main, .footer {
 .review figcaption span { color: var(--muted); font-size: 12px; }
 
 /* LINKEDIN RECOMMENDATIONS */
+.reviews.recs {
+  display: block;
+  columns: 3 300px;
+  column-gap: 20px;
+}
+.recs .review {
+  break-inside: avoid;
+  margin-bottom: 20px;
+}
 .rec blockquote p::before, .rec blockquote p::after { content: none; }
 .rec blockquote p { color: var(--muted); }
 .rec blockquote p + p { margin-top: 8px; }
 .rec blockquote ul { list-style: none; margin-top: 8px; display: grid; gap: 4px; }
 .rec blockquote li { position: relative; padding-left: 18px; font-size: 13px; color: var(--muted); }
 .rec blockquote li::before { content: '>'; position: absolute; left: 0; color: var(--accent); }
+.rec blockquote li strong { color: var(--text); font-weight: 500; }
+.rec blockquote ul + p { margin-top: 8px; }
 .rec figcaption { flex-direction: row; align-items: center; gap: 12px; }
 .rec figcaption > span:last-child { display: flex; flex-direction: column; }
 .rec .rel { color: var(--accent-2); }
@@ -834,7 +846,7 @@ main, .footer {
   font-size: 13px;
   font-weight: 500;
 }
-.review-links.after { margin: 20px 0 48px; }
+.review-links.after { margin: 0 0 48px; }
 
 /* SCROLL REVEAL (only when JS is running) */
 .js .reveal {
