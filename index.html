@@ -49,6 +49,9 @@
   <header class="nav">
     <a href="#top" class="logo" aria-label="Jatesh Kumar, back to top">jateshkumar<span>.</span>dev</a>
     <nav>
+      <button class="cmdk-trigger" type="button" aria-haspopup="dialog" aria-controls="cmdk">
+        <span>Search</span><kbd>&#8984;K</kbd>
+      </button>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
@@ -70,6 +73,7 @@
       <div class="hero-main">
         <div class="hero-copy">
           <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Open to remote roles &amp; freelance projects</p>
+          <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~</span>$ <span class="p-cmd">whoami</span></p>
           <h1>Jatesh Kumar<span class="cursor" aria-hidden="true">_</span></h1>
           <p class="role"><span class="nb">Senior iOS &amp; macOS Engineer</span> <span class="sep">|</span> <span class="nb">Deputy Manager, Team Lead</span></p>
           <p class="intro">
@@ -99,14 +103,15 @@
       </div>
 
       <div class="stats">
-        <div class="stat"><strong>100K+</strong><span>users served</span></div>
-        <div class="stat"><strong>96%</strong><span>crash-free users (up from 87%)</span></div>
+        <div class="stat"><strong data-count="100" data-suffix="K+">100K+</strong><span>users served</span></div>
+        <div class="stat"><strong data-count="96" data-suffix="%">96%</strong><span>crash-free users (up from 87%)</span></div>
         <div class="stat"><strong>$27K&rarr;$3K</strong><span>monthly Maps API spend</span></div>
-        <div class="stat"><strong>5</strong><span>apps shipped</span></div>
+        <div class="stat"><strong data-count="5">5</strong><span>apps shipped</span></div>
       </div>
     </section>
 
     <section id="services" class="section">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">cat services.md</span></p>
       <h2><span class="num">01</span> What I do</h2>
       <div class="services">
         <article class="service reveal">
@@ -145,6 +150,7 @@
     </section>
 
     <section id="apps" class="section">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">ls ~/apps --shipped</span></p>
       <h2><span class="num">02</span> Apps</h2>
       <div class="grid">
 
@@ -242,6 +248,7 @@
     </section>
 
     <section id="impact" class="section">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">./benchmark --before --after</span></p>
       <h2><span class="num">03</span> Impact</h2>
       <div class="cases">
         <article class="case reveal">
@@ -287,6 +294,7 @@
     </section>
 
     <section id="experience" class="section">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">git log --author="jatesh" --career</span></p>
       <h2><span class="num">04</span> Experience</h2>
       <ol class="timeline">
 
@@ -328,6 +336,7 @@
     </section>
 
     <section id="testimonials" class="section">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">grep -r "5.0" reviews/</span></p>
       <h2><span class="num">05</span> Client reviews</h2>
       <p class="section-lead">Freelance clients on Upwork and Freelancer.com. Every review below is rated 5.0.</p>
       <div class="review-links">
@@ -374,6 +383,7 @@
     </section>
 
     <section id="skills" class="section">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">swift package show-dependencies</span></p>
       <h2><span class="num">06</span> Skills</h2>
       <div class="skills">
         <div class="skill-group reveal">
@@ -421,6 +431,7 @@
     </section>
 
     <section id="contact" class="section contact">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/portfolio</span>$ <span class="p-cmd">./contact --remote --freelance</span></p>
       <h2><span class="num">07</span> Contact</h2>
       <p class="contact-lead">Hiring for a remote role, or need an iOS or macOS developer for a freelance project? Send a message and I'll get back to you.</p>
 
@@ -459,6 +470,24 @@
   <footer class="footer">
     <p>&copy; <span id="year">2026</span> Jatesh Kumar. Built with plain HTML, CSS, and JavaScript.</p>
   </footer>
+
+  <div class="statusbar">
+    <span class="sb-item sb-branch">&#9095; main</span>
+    <span class="sb-item"><span class="dot" aria-hidden="true"></span> open to work</span>
+    <span class="sb-item sb-wide">Swift &middot; UTF-8 &middot; LF</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">Karachi <time id="local-time">UTC+5</time></span>
+    <button class="sb-item sb-cmdk" type="button" aria-controls="cmdk">&#8984;K</button>
+  </div>
+
+  <dialog class="cmdk" id="cmdk" aria-label="Command palette">
+    <div class="cmdk-input">
+      <span aria-hidden="true">&gt;</span>
+      <input type="text" placeholder="Type a command or search..." aria-label="Search commands" role="combobox" aria-expanded="true" aria-controls="cmdk-list" autocomplete="off" spellcheck="false">
+      <kbd>esc</kbd>
+    </div>
+    <ul class="cmdk-list" id="cmdk-list" role="listbox"></ul>
+  </dialog>
 
   <script src="script.js"></script>
 </body>

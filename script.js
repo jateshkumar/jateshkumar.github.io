@@ -1,5 +1,14 @@
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Status bar clock in Karachi time, so remote clients can see my local hour
+const localTime = document.getElementById('local-time');
+const karachiTime = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Karachi', hour: '2-digit', minute: '2-digit' });
+const tick = () => { localTime.textContent = karachiTime.format(new Date()); };
+tick();
+setInterval(tick, 30000);
 
 // Mobile menu
 const toggle = document.querySelector('.menu-toggle');
@@ -39,6 +48,26 @@ if ('IntersectionObserver' in window) {
 
   revealables.forEach((el) => revealer.observe(el));
 
+  // Count hero stats up from zero the first time they appear
+  const counter = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      counter.unobserve(entry.target);
+      const el = entry.target;
+      const target = Number(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - start) / 1200, 1);
+        el.textContent = Math.round(target * (1 - (1 - t) ** 3)) + suffix;
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  });
+
+  if (!reduceMotion) document.querySelectorAll('[data-count]').forEach((el) => counter.observe(el));
+
   // Highlight the nav link for the section on screen
   const navLinks = links.querySelectorAll('a[href^="#"]');
   const spy = new IntersectionObserver((entries) => {
@@ -52,6 +81,198 @@ if ('IntersectionObserver' in window) {
 } else {
   revealables.forEach((el) => el.classList.add('in'));
 }
+
+// Type out the hero code window
+const code = document.querySelector('.code-window code');
+
+if (code && code.offsetParent && !reduceMotion) {
+  // Lock the height so the hero doesn't shift while the text grows
+  code.parentElement.style.minHeight = `${code.parentElement.offsetHeight}px`;
+
+  const walker = document.createTreeWalker(code, NodeFilter.SHOW_TEXT);
+  const chunks = [];
+  while (walker.nextNode()) {
+    chunks.push({ node: walker.currentNode, text: walker.currentNode.textContent });
+    walker.currentNode.textContent = '';
+  }
+
+  let i = 0;
+  let j = 0;
+  const type = () => {
+    if (i >= chunks.length) return;
+    const { node, text } = chunks[i];
+    j += 1;
+    node.textContent = text.slice(0, j);
+    const ch = text[j - 1];
+    if (j >= text.length) { i += 1; j = 0; }
+    setTimeout(type, ch === '\n' ? 90 : 12);
+  };
+  setTimeout(type, 500);
+}
+
+// Cursor spotlight on the grid, and a glow inside the card under the pointer
+if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+  const glowCards = '.card, .service, .case, .review, .skill-group, .freelance';
+  document.addEventListener('pointermove', (e) => {
+    document.body.style.setProperty('--mx', `${e.clientX}px`);
+    document.body.style.setProperty('--my', `${e.clientY}px`);
+    const card = e.target.closest(glowCards);
+    if (!card) return;
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--x', `${e.clientX - r.left}px`);
+    card.style.setProperty('--y', `${e.clientY - r.top}px`);
+  });
+}
+
+// Command palette: Cmd/Ctrl+K or "/" to jump around the page
+const palette = document.getElementById('cmdk');
+const paletteInput = palette.querySelector('input');
+const paletteList = palette.querySelector('.cmdk-list');
+const email = 'jateshkumarmaheshwari@gmail.com';
+
+const toast = (message) => {
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.setAttribute('role', 'status');
+  el.textContent = message;
+  document.body.append(el);
+  setTimeout(() => el.remove(), 2200);
+};
+
+const goTo = (hash) => () => document.querySelector(hash).scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+const openTab = (url) => () => window.open(url, '_blank', 'noopener');
+
+const commands = [
+  { group: 'Go to', label: 'What I do', hint: '#services', run: goTo('#services') },
+  { group: 'Go to', label: 'Apps', hint: '#apps', run: goTo('#apps') },
+  { group: 'Go to', label: 'Impact', hint: '#impact', run: goTo('#impact') },
+  { group: 'Go to', label: 'Experience', hint: '#experience', run: goTo('#experience') },
+  { group: 'Go to', label: 'Client reviews', hint: '#testimonials', run: goTo('#testimonials') },
+  { group: 'Go to', label: 'Skills', hint: '#skills', run: goTo('#skills') },
+  { group: 'Go to', label: 'Contact', hint: '#contact', run: goTo('#contact') },
+  {
+    group: 'Actions',
+    label: 'Download resume (PDF)',
+    hint: 'pdf',
+    run: () => {
+      const a = document.createElement('a');
+      a.href = 'assets/Jatesh-Kumar-Resume.pdf';
+      a.download = 'Jatesh-Kumar-Resume.pdf';
+      a.click();
+    },
+  },
+  {
+    group: 'Actions',
+    label: 'Copy email address',
+    hint: 'clipboard',
+    run: async () => {
+      try {
+        await navigator.clipboard.writeText(email);
+        toast('Email copied to clipboard');
+      } catch {
+        window.location.href = `mailto:${email}`;
+      }
+    },
+  },
+  { group: 'Actions', label: 'Send an email', hint: 'mailto', run: () => { window.location.href = `mailto:${email}`; } },
+  { group: 'Profiles', label: 'LinkedIn', hint: 'jkmaheshwari', run: openTab('https://www.linkedin.com/in/jkmaheshwari') },
+  { group: 'Profiles', label: 'GitHub', hint: 'jateshkumar', run: openTab('https://github.com/jateshkumar') },
+  { group: 'Profiles', label: 'Upwork', hint: 'hire me', run: openTab('https://www.upwork.com/freelancers/~01549cd75e5e4d42bc') },
+  { group: 'Profiles', label: 'Freelancer.com', hint: 'jateshkumar', run: openTab('https://www.freelancer.pk/u/jateshkumar') },
+];
+
+let matches = commands;
+let active = 0;
+
+const renderPalette = () => {
+  const q = paletteInput.value.trim().toLowerCase();
+  matches = commands.filter((c) => `${c.group} ${c.label} ${c.hint}`.toLowerCase().includes(q));
+  active = Math.min(active, Math.max(matches.length - 1, 0));
+  paletteList.innerHTML = '';
+
+  if (!matches.length) {
+    paletteList.innerHTML = '<li class="cmdk-empty">No matching commands</li>';
+    paletteInput.removeAttribute('aria-activedescendant');
+    return;
+  }
+
+  let group = '';
+  matches.forEach((c, idx) => {
+    if (c.group !== group) {
+      group = c.group;
+      const heading = document.createElement('li');
+      heading.className = 'cmdk-group';
+      heading.setAttribute('role', 'presentation');
+      heading.textContent = group;
+      paletteList.append(heading);
+    }
+    const li = document.createElement('li');
+    li.id = `cmdk-opt-${idx}`;
+    li.className = 'cmdk-item';
+    li.setAttribute('role', 'option');
+    li.setAttribute('aria-selected', String(idx === active));
+    li.innerHTML = `<span></span><small></small>`;
+    li.firstChild.textContent = c.label;
+    li.lastChild.textContent = c.hint;
+    li.addEventListener('click', () => runCommand(idx));
+    li.addEventListener('pointermove', () => {
+      if (active !== idx) { active = idx; renderPalette(); }
+    });
+    paletteList.append(li);
+  });
+
+  paletteInput.setAttribute('aria-activedescendant', `cmdk-opt-${active}`);
+  document.getElementById(`cmdk-opt-${active}`).scrollIntoView({ block: 'nearest' });
+};
+
+const openPalette = () => {
+  if (palette.open) return;
+  closeMenu();
+  paletteInput.value = '';
+  active = 0;
+  renderPalette();
+  palette.showModal();
+  paletteInput.focus();
+};
+
+const runCommand = (idx) => {
+  const command = matches[idx];
+  if (!command) return;
+  palette.close();
+  command.run();
+};
+
+document.querySelectorAll('[aria-controls="cmdk"]').forEach((btn) => btn.addEventListener('click', openPalette));
+
+document.addEventListener('keydown', (e) => {
+  const typing = e.target instanceof Element && e.target.closest('input, textarea');
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    if (palette.open) palette.close(); else openPalette();
+  } else if (e.key === '/' && !typing && !palette.open) {
+    e.preventDefault();
+    openPalette();
+  }
+});
+
+paletteInput.addEventListener('input', () => { active = 0; renderPalette(); });
+
+paletteInput.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (!matches.length) return;
+    active = (active + (e.key === 'ArrowDown' ? 1 : -1) + matches.length) % matches.length;
+    renderPalette();
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    runCommand(active);
+  }
+});
+
+// Clicking the dimmed backdrop closes the palette
+palette.addEventListener('click', (e) => {
+  if (e.target === palette) palette.close();
+});
 
 // Contact form: posts to a Google Form in the background so the visitor stays on the page
 const form = document.querySelector('.contact-form');
