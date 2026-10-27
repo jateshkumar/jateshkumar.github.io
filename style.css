@@ -448,6 +448,9 @@ main, .footer {
   flex-grow: 1;
 }
 .card a { font-size: 14px; font-weight: 500; }
+.card-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; }
+.card-links .case-link { color: var(--accent-2); }
+.case-more { display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 500; color: var(--accent-2); }
 
 .apps-sub {
   display: flex;

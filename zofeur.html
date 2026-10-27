@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study: how Jatesh Kumar built Zofeur's iOS app from scratch, shipped it to the App Store as a trainee, and cut Google Maps spend from $27K to $3K a month.">
+  <title>Zofeur Case Study | Jatesh Kumar</title>
+  <link rel="canonical" href="https://jateshkumar.github.io/zofeur.html">
+  <meta name="theme-color" content="#07090d">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jateshkumar.github.io/zofeur.html">
+  <meta property="og:title" content="Zofeur: shipping my first app with no safety net">
+  <meta property="og:description" content="Built from scratch, shipped as a trainee, and Google Maps spend cut from $27K to $3K a month.">
+  <meta property="og:image" content="https://jateshkumar.github.io/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { padding-bottom: 0; }
+    .cs { max-width: 920px; margin: 0 auto; padding: 0 24px 96px; }
+    .cs-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 0;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .cs-bar a:not(.logo) { font-size: 14px; color: var(--muted); }
+    .cs-bar a:not(.logo):hover { color: var(--accent); }
+
+    .cs-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+    .cs-hero .app-row { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .cs-hero .app-row img { width: 56px; height: 56px; border-radius: 13px; border: 1px solid var(--line); }
+    .cs-hero .app-row span { font-size: 13px; color: var(--muted); }
+    .cs-hero .app-row strong { display: block; font-family: var(--font-display); font-size: 18px; color: var(--text); }
+    .cs-hero h1 { font-size: clamp(34px, 5.5vw, 54px); letter-spacing: -0.02em; margin-bottom: 18px; }
+    .cs-hero h1 span { color: var(--accent); }
+    .cs-hero .lede { color: var(--muted); font-size: 16px; max-width: 560px; }
+    .cs-phones { display: flex; gap: 10px; }
+    .cs-phones img {
+      width: 120px;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .cs-phones img:nth-child(2) { transform: translateY(-18px); }
+
+    .cs-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+      gap: 1px;
+      margin: 48px 0 0;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .cs-meta div { background: var(--bg-2); padding: 16px 18px; }
+    .cs-meta dt { font-size: 11px; color: var(--accent-2); text-transform: uppercase; letter-spacing: 0.1em; }
+    .cs-meta dd { font-size: 14px; margin-top: 2px; }
+
+    .chapter { margin-top: 72px; }
+    .chapter .prompt { margin-bottom: 6px; }
+    .chapter h2 { font-size: clamp(24px, 3.4vw, 32px); margin-bottom: 18px; }
+    .chapter p { color: var(--muted); margin-bottom: 14px; max-width: 720px; }
+    .chapter p strong { color: var(--text); font-weight: 500; }
+    .chapter ul { list-style: none; display: grid; gap: 8px; margin: 6px 0 16px; max-width: 720px; }
+    .chapter li { position: relative; padding-left: 20px; color: var(--muted); font-size: 14px; }
+    .chapter li::before { content: '>'; position: absolute; left: 0; color: var(--accent); }
+
+    .log {
+      margin: 20px 0 8px;
+      background: #090c11;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      max-width: 720px;
+    }
+    .log pre { padding: 16px 18px; font-family: var(--font-mono); font-size: 13px; line-height: 1.8; overflow-x: auto; }
+    .log .err { color: var(--danger); }
+    .log .warn { color: #ffd166; }
+
+    .callout {
+      position: relative;
+      margin: 24px 0;
+      padding: 22px 24px 22px 26px;
+      max-width: 720px;
+      border-left: 3px solid #ffd166;
+      border-radius: var(--radius);
+      background: linear-gradient(120deg, rgba(255, 209, 102, 0.08), transparent 70%), var(--panel);
+    }
+    .callout .tag-line { font-size: 11px; color: #ffd166; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .callout p { color: var(--text); margin: 0; font-size: 15px; }
+
+    .cs-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .cs-results div {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .cs-results strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.1;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .cs-results span { color: var(--muted); font-size: 13px; }
+
+    .cs-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .cs-stack span {
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .cs-cta {
+      margin-top: 80px;
+      padding: 28px;
+      border: 1px solid rgba(0, 255, 157, 0.35);
+      border-radius: var(--radius);
+      background: linear-gradient(120deg, rgba(0, 255, 157, 0.08), rgba(0, 184, 255, 0.05) 60%, transparent), var(--panel);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .cs-cta h2 { font-size: 22px; margin-bottom: 6px; }
+    .cs-cta p { color: var(--muted); font-size: 14px; }
+    .cs-cta .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    @media (max-width: 760px) {
+      .cs-hero { grid-template-columns: 1fr; }
+      .cs-phones img { width: calc((100% - 20px) / 3); }
+    }
+  </style>
+</head>
+<body>
+  <main class="cs">
+    <nav class="cs-bar" aria-label="Case study">
+      <a href="./" class="logo">jateshkumar<span>.</span>dev</a>
+      <a href="./#apps">&larr; All apps</a>
+    </nav>
+
+    <header class="cs-hero">
+      <div>
+        <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/case-studies</span>$ <span class="p-cmd">cat zofeur.md</span></p>
+        <div class="app-row">
+          <img src="assets/apps/zofeur-icon.png" alt="" width="128" height="128">
+          <span><strong>Zofeur</strong>On-demand chauffeur booking &middot; Dubai, Abu Dhabi, Sharjah</span>
+        </div>
+        <h1>Shipping my first app with <span>no safety net</span></h1>
+        <p class="lede">I built Zofeur's iOS app from scratch, took it through App Store review alone while I was still a trainee, made a $700 mistake, and then helped bring the Google Maps bill down from $27K to $3K a month.</p>
+      </div>
+      <div class="cs-phones">
+        <img src="assets/apps/zofeur-1.webp" alt="Zofeur App Store screenshot" width="300" height="649">
+        <img src="assets/apps/zofeur-2.webp" alt="" width="300" height="649">
+        <img src="assets/apps/zofeur-3.webp" alt="" width="300" height="649">
+      </div>
+    </header>
+
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>iOS Engineer (started as a trainee)</dd></div>
+      <div><dt>Company</dt><dd>Next Generation Innovation</dd></div>
+      <div><dt>Platform</dt><dd>iOS &middot; Swift</dd></div>
+      <div><dt>App Store</dt><dd>&#9733; 4.8 &middot; 465 ratings</dd></div>
+    </dl>
+
+    <section class="chapter">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/zofeur</span>$ <span class="p-cmd">git init</span></p>
+      <h2>01 &middot; Building it from scratch</h2>
+      <p>Zofeur lets people in the UAE book a professional driver by the hour, day, week, or month. I owned the iOS app from the first commit, so the architecture, the core features, and the technical decisions were mine.</p>
+      <ul>
+        <li>Designed a modular MVVM architecture with reusable feature components. It later became the standard across several iOS projects at the company.</li>
+        <li>Built the core maps layer with Google Maps SDK and Core Location: driver and rider tracking, geofencing, and map-driven booking flows.</li>
+        <li>Drew polylines and custom overlays for trip routes, the driver's approach, and live trip progress.</li>
+        <li>Worked closely with design and product on map UX, motion, and transitions, testing and refining quickly.</li>
+      </ul>
+    </section>
+
+    <section class="chapter">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/zofeur</span>$ <span class="p-cmd">fastlane release --first-time</span></p>
+      <h2>02 &middot; Launch week, alone</h2>
+      <p>Right as the first build was due to go live, the senior engineer fell ill and was on leave for more than 15 days, with no way to reach him by phone. I was <strong>two to three months into my career, still in my trainee phase</strong>, and the release was suddenly mine.</p>
+      <p>I had never shipped an app. I taught myself App Store Connect, TestFlight, certificates and provisioning profiles, and Apple's review checks, mostly by trying, failing, reading, and trying again. It was hard, and it took a lot of long hours.</p>
+      <div class="log" aria-hidden="true">
+        <pre><span class="t-cmd">$ submit Zofeur 1.0 for review</span>
+<span class="err">&#10007; Rejected</span>
+<span class="t-cmd">$ fix, resubmit</span>
+<span class="err">&#10007; Rejected</span>
+<span class="t-cmd">$ fix, resubmit</span>
+<span class="t-ok">&#10003; Ready for Distribution</span></pre>
+      </div>
+      <p>The app was rejected a couple of times. Each rejection taught me something about Apple's guidelines, and I kept fixing and resubmitting until <strong>Zofeur went live on the App Store</strong>. It now holds a 4.8-star rating from 465 reviews.</p>
+    </section>
+
+    <section class="chapter">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/zofeur</span>$ <span class="p-cmd">git blame LocationService.swift</span></p>
+      <h2>03 &middot; The $700 lesson</h2>
+      <p>Early on, I used the paid Google Maps API to get the user's current location, when Apple's Core Location framework does the same job for free on the device. Every location lookup was a billable request.</p>
+      <p>By the time the owner and the leads noticed, that one decision had cost about <strong>$700</strong>.</p>
+      <div class="callout">
+        <p class="tag-line">// what happened next</p>
+        <p>They called me in and, jokingly, told me to remove the API and hand over my laptop, which I had just bought for about the same amount. Everyone laughed, I switched to Core Location, and I never forgot what a single API call can cost at scale.</p>
+      </div>
+      <p>It was a funny moment, but it changed how I work. From then on I treated every network call to a paid service as a cost, not just a feature, and that habit set up the biggest win on the project.</p>
+    </section>
+
+    <section class="chapter">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/zofeur</span>$ <span class="p-cmd">./benchmark maps --before --after</span></p>
+      <h2>04 &middot; From $27K to $3K a month</h2>
+      <p>Once real users arrived, the first month's Google Maps bill came in at <strong>$27K</strong>. For an early-stage product, that was not sustainable.</p>
+      <p>I redesigned how the app used Google Maps:</p>
+      <ul>
+        <li><strong>Core Location first:</strong> the device handles the user's own position, so it no longer needs a paid request.</li>
+        <li><strong>Intelligent caching:</strong> results that don't change often are reused instead of fetched again.</li>
+        <li><strong>Request throttling:</strong> live updates are rate-limited to what the UI actually needs.</li>
+        <li><strong>Usage optimization:</strong> every paid call was audited and the unnecessary ones removed.</li>
+      </ul>
+      <div class="cs-results">
+        <div><strong>$27K &rarr; $3K</strong><span>monthly Google Maps spend</span></div>
+        <div><strong>&minus;89%</strong><span>infrastructure cost</span></div>
+        <div><strong>&minus;18%</strong><span>App Store package size</span></div>
+        <div><strong>&#9733; 4.8</strong><span>App Store rating, 465 reviews</span></div>
+      </div>
+    </section>
+
+    <section class="chapter">
+      <p class="prompt" aria-hidden="true"><span class="p-user">jatesh@mac</span>:<span class="p-path">~/zofeur</span>$ <span class="p-cmd">cat LESSONS.md</span></p>
+      <h2>05 &middot; What I took away</h2>
+      <ul>
+        <li><strong>You can learn anything under pressure</strong> if you are willing to fail a few times first. App Store review stopped being scary after I'd been rejected by it.</li>
+        <li><strong>Every API call has a price.</strong> The $700 mistake is why I look at cost, not just correctness, in every integration I build.</li>
+        <li><strong>Mistakes are data.</strong> The same habit that came from my own slip-up is what cut the Maps bill by roughly 89%.</li>
+        <li><strong>Architecture outlives the project.</strong> The MVVM structure I set up for Zofeur became the template for other iOS apps at the company.</li>
+      </ul>
+      <p>Stack</p>
+      <div class="cs-stack">
+        <span>Swift</span><span>MVVM</span><span>Google Maps SDK</span><span>Core Location</span><span>Geofencing</span><span>Polylines &amp; overlays</span><span>App Store Connect</span><span>TestFlight</span><span>Code signing</span>
+      </div>
+    </section>
+
+    <aside class="cs-cta">
+      <div>
+        <h2>Building something similar?</h2>
+        <p>I take on select freelance iOS and macOS projects, and I'm open to remote roles.</p>
+      </div>
+      <div class="actions">
+        <a href="https://calendly.com/jateshkumarmaheshwari/30min" target="_blank" rel="noopener" class="btn btn-primary">Book a 30-min call<span class="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://apps.apple.com/us/app/zofeur-hire-a-safe-driver/id1520275979" target="_blank" rel="noopener" class="btn btn-ghost">Zofeur on the App Store<span class="sr-only"> (opens in a new tab)</span></a>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

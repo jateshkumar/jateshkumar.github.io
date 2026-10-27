@@ -228,6 +228,7 @@ const commands = [
   { group: 'Go to', label: 'Contact', hint: '#contact', run: goTo('#contact') },
   { group: 'Actions', label: 'Book a 30-min call', hint: 'calendly', run: openTab('https://calendly.com/jateshkumarmaheshwari/30min') },
   { group: 'Actions', label: 'Open terminal', hint: '`', run: () => openTerm() },
+  { group: 'Case studies', label: 'Zofeur: shipping my first app with no safety net', hint: 'zofeur.html', run: () => { window.location.href = 'zofeur.html'; } },
   { group: 'Actions', label: 'View resume (web page)', hint: 'resume.html', run: openTab('resume.html') },
   {
     group: 'Actions',
