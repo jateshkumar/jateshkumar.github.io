@@ -40,7 +40,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -49,7 +50,7 @@
   <div class="bg-apps" aria-hidden="true"></div>
 
   <header class="nav">
-    <a href="#top" class="logo" aria-label="Jatesh Kumar, back to top">jateshkumar<span>.</span>dev</a>
+    <a href="#top" class="logo" aria-label="jateshkumar.dev, back to top">jateshkumar<span>.</span>dev</a>
     <nav>
       <button class="cmdk-trigger" type="button" aria-haspopup="dialog" aria-controls="cmdk">
         <span>Search</span><kbd>&#8984;K</kbd>
@@ -64,7 +65,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="assets/Jatesh-Kumar-Resume.pdf" target="_blank" rel="noopener" class="nav-cta">Resume</a></li>
+        <li><a href="resume.html" class="nav-cta">Resume</a></li>
       </ul>
     </nav>
   </header>
@@ -548,37 +549,37 @@
       <h2><span class="num">06</span> Skills</h2>
       <div class="skills">
         <div class="skill-group reveal">
-          <h4>Languages &amp; Frameworks</h4>
+          <h3>Languages &amp; Frameworks</h3>
           <div class="chips">
             <span>Swift</span><span>Objective-C</span><span>SwiftUI</span><span>UIKit</span><span>Combine</span><span>Core Data</span><span>MapKit</span><span>Core Location</span><span>WidgetKit</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>Architecture &amp; Concurrency</h4>
+          <h3>Architecture &amp; Concurrency</h3>
           <div class="chips">
             <span>MVVM</span><span>Clean Architecture</span><span>Swift Concurrency</span><span>Actors</span><span>GCD</span><span>Dependency Injection</span><span>Feature Flags</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>macOS &amp; Performance</h4>
+          <h3>macOS &amp; Performance</h3>
           <div class="chips">
             <span>AppKit</span><span>Notarization</span><span>PKG Packaging</span><span>Code Signing</span><span>Instruments</span><span>ARC</span><span>Push Notifications</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>DevOps &amp; Testing</h4>
+          <h3>DevOps &amp; Testing</h3>
           <div class="chips">
             <span>Fastlane</span><span>GitHub Actions</span><span>Azure DevOps</span><span>XCTest</span><span>TDD</span><span>Firebase Crashlytics</span><span>SPM</span><span>CocoaPods</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>Payments &amp; Security</h4>
+          <h3>Payments &amp; Security</h3>
           <div class="chips">
             <span>StoreKit</span><span>Apple Pay</span><span>Stripe</span><span>Keychain</span><span>SSL Pinning</span>
           </div>
         </div>
         <div class="skill-group reveal">
-          <h4>AI-Assisted Development</h4>
+          <h3>AI-Assisted Development</h3>
           <div class="chips">
             <span>Claude Code</span><span>Cursor</span><span>Prompt Engineering</span><span>Flutter</span><span>React Native</span>
           </div>
@@ -586,7 +587,7 @@
       </div>
 
       <div class="education reveal">
-        <h4>Education</h4>
+        <h3>Education</h3>
         <p><strong>BE, Computer Systems Engineering</strong> &middot; Mehran University of Engineering and Technology, Jamshoro &middot; 2016&ndash;2019 &middot; GPA 3.70</p>
       </div>
     </section>
@@ -615,7 +616,7 @@
             <span>Message</span>
             <textarea name="entry.797285554" rows="5" required></textarea>
           </label>
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-label="Leave this field empty">
           <button type="submit" class="btn btn-primary">Send message</button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
@@ -640,12 +641,22 @@
 
   <div class="statusbar">
     <span class="sb-item sb-branch">&#9095; main</span>
-    <span class="sb-item"><span class="dot" aria-hidden="true"></span> open to work</span>
+    <span class="sb-item sb-status"><span class="dot" aria-hidden="true"></span> open to work</span>
     <span class="sb-item sb-wide">Swift &middot; UTF-8 &middot; LF</span>
     <span class="sb-spacer"></span>
     <span class="sb-item">Karachi <time id="local-time">UTC+5</time></span>
+    <button class="sb-item sb-term" type="button" aria-controls="term">&gt;_ terminal <kbd>`</kbd></button>
     <button class="sb-item sb-cmdk" type="button" aria-controls="cmdk">&#8984;K</button>
   </div>
+
+  <dialog class="term" id="term" aria-label="Interactive terminal">
+    <div class="code-bar"><i></i><i></i><i></i><span>jatesh@mac &mdash; zsh &mdash; 80&times;24</span><button type="button" class="term-close" aria-label="Close terminal">esc</button></div>
+    <div class="term-out" aria-live="polite"></div>
+    <form class="term-line">
+      <label for="term-input"><span class="p-user">jatesh@mac</span>:<span class="p-path">~</span>$</label>
+      <input id="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </form>
+  </dialog>
 
   <dialog class="cmdk" id="cmdk" aria-label="Command palette">
     <div class="cmdk-input">

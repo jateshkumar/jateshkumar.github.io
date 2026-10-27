@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resume of Jatesh Kumar, Senior iOS and macOS Engineer and Deputy Manager (Team Lead). 5+ years building native Apple apps serving 100K+ users.">
+  <title>Jatesh Kumar | Resume</title>
+  <link rel="canonical" href="https://jateshkumar.github.io/resume.html">
+  <meta name="theme-color" content="#07090d">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://jateshkumar.github.io/resume.html">
+  <meta property="og:title" content="Jatesh Kumar | Resume">
+  <meta property="og:description" content="Senior iOS and macOS Engineer and Team Lead. 5+ years building native Apple apps serving 100K+ users.">
+  <meta property="og:image" content="https://jateshkumar.github.io/assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { padding-bottom: 0; }
+    .resume {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .resume-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .resume-bar .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .resume-bar .btn { padding: 9px 16px; font-size: 13px; }
+    .resume header h1 { font-size: clamp(36px, 6vw, 56px); letter-spacing: -0.02em; }
+    .resume .title { font-family: var(--font-display); font-size: 20px; color: var(--accent-2); margin: 6px 0 14px; }
+    .resume .meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .resume .meta a { color: var(--text); }
+    .resume section { margin-top: 40px; }
+    .resume h2 {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+    .resume h2::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+    .resume .summary { color: var(--muted); }
+    .job { margin-bottom: 28px; }
+    .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+    .job h3 { font-size: 18px; }
+    .job .org { display: block; color: var(--accent-2); font-size: 14px; font-family: var(--font-mono); font-weight: 400; margin-top: 2px; }
+    .job time { color: var(--accent); font-size: 13px; white-space: nowrap; }
+    .job ul, .skills-list { list-style: none; margin-top: 10px; display: grid; gap: 6px; }
+    .job li, .skills-list li { position: relative; padding-left: 20px; color: var(--muted); font-size: 14px; }
+    .job li::before, .skills-list li::before { content: '>'; position: absolute; left: 0; color: var(--accent); }
+    .skills-list strong { color: var(--text); font-weight: 500; }
+
+    @media print {
+      @page { margin: 12mm 14mm; }
+      body { background: #fff; color: #111; font-family: 'Space Grotesk', Arial, sans-serif; font-size: 10pt; line-height: 1.45; }
+      .resume .meta, .job .org, .job time { font-family: inherit; }
+      .resume header h1 { font-size: 26pt; }
+      .resume .title { font-size: 13pt; margin: 2px 0 6px; }
+      .resume section { margin-top: 16px; }
+      .resume h2 { font-size: 13pt; margin-bottom: 8px; }
+      .job { margin-bottom: 12px; }
+      .job h3 { font-size: 11pt; }
+      .job ul, .skills-list { gap: 2px; margin-top: 4px; }
+      .job li, .skills-list li { font-size: 9.5pt; padding-left: 14px; }
+      .job li { break-inside: avoid; }
+      .job-head { break-after: avoid; }
+      body::before, .resume-bar { display: none; }
+      .resume { max-width: none; padding: 0; }
+      .resume .title, .job .org { color: #0b5f8a; }
+      .resume .meta, .resume .summary, .job li, .skills-list li { color: #333; }
+      .resume .meta a, .skills-list strong { color: #111; }
+      .job time, .job li::before, .skills-list li::before { color: #0b7a4b; }
+      .resume h2::after { background: #ccc; }
+    }
+  </style>
+</head>
+<body>
+  <main class="resume">
+    <div class="resume-bar">
+      <a href="./" class="logo">jateshkumar<span>.</span>dev</a>
+      <div class="actions">
+        <a href="assets/Jatesh-Kumar-Resume.pdf" class="btn btn-primary" download="Jatesh-Kumar-Resume.pdf">Download PDF</a>
+        <button type="button" class="btn btn-ghost" onclick="window.print()">Print</button>
+        <a href="./" class="btn btn-ghost">&larr; Portfolio</a>
+      </div>
+    </div>
+
+    <header>
+      <h1>Jatesh Kumar</h1>
+      <p class="title">Senior iOS &amp; macOS Engineer | Deputy Manager (Team Lead)</p>
+      <p class="meta">
+        <span>Karachi, Pakistan &middot; Available across all time zones</span>
+        <a href="mailto:jateshkumarmaheshwari@gmail.com">jateshkumarmaheshwari@gmail.com</a>
+        <a href="https://www.linkedin.com/in/jkmaheshwari">linkedin.com/in/jkmaheshwari</a>
+        <a href="https://github.com/jateshkumar">github.com/jateshkumar</a>
+        <a href="https://jateshkumar.github.io/">jateshkumar.github.io</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">Senior iOS and macOS engineer with 5+ years building native iOS and macOS apps serving 100K+ users. Architected MVVM-based modular systems and led stability work that raised crash-free users from 87% to 96%. Drove adoption of Swift Concurrency, feature flags, and CI/CD, and cut Google Maps API spend from $27K to $3K/month. Currently leading a team of 5 engineers on AI/ML Automation and internal tooling, with hands-on work in Flutter and React Native integrations. Open to remote roles and freelance projects.</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <article class="job">
+        <div class="job-head">
+          <h3>Deputy Manager, AI/ML Automation <span class="org">Ideas Private Limited</span></h3>
+          <time>Sep 2026 &ndash; Present</time>
+        </div>
+        <ul>
+          <li>Leading a team of 5 engineers building organization-wide tools across multiple platforms, setting technical direction, decision making and reviewing work.</li>
+          <li>Implemented native iOS CallKit integration in Swift for a React Native app, enabling incoming-call UI on the lock screen.</li>
+          <li>Building an internal prompt library app in Flutter for organization-wide use, giving teams a shared, searchable collection of vetted AI prompts.</li>
+          <li>Adopting AI-assisted development workflows across the team, using tools such as Claude Code to accelerate feature delivery and MVPs.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <h3>Senior Engineer, iOS/macOS <span class="org">PureSquare (Disrupt.com)</span></h3>
+          <time>Mar 2023 &ndash; Sep 2026</time>
+        </div>
+        <ul>
+          <li>Redesigned Dark Web Monitoring journeys across iOS and macOS by simplifying UI flows and reducing breach resolution steps, and implemented a Password Manager freemium feature, driving higher user retention and recurring purchases.</li>
+          <li>Implemented a CI/CD pipeline using Fastlane and Azure DevOps for iOS and macOS, automating TestFlight uploads for iOS and end-to-end macOS builds including archiving, PKG generation, and notarization.</li>
+          <li>Championed adoption of TDD practices across iOS and macOS codebases, increasing test coverage by 20%.</li>
+          <li>Led stability improvements by resolving retain cycles and memory leaks, raising crash-free users from 87% to 96%.</li>
+          <li>Integrated SwiftUI with UIKit-based architecture for new modules, enabling modular UI development, better state management, and enhanced UX consistency.</li>
+          <li>Refactored legacy completion-handler-based networking to Swift Concurrency (async/await), reducing callback nesting and improving maintainability and execution efficiency.</li>
+          <li>Designed and implemented a feature flag system enabling controlled rollouts, A/B testing, and remote feature toggling without app releases.</li>
+          <li>Led technical planning and architectural decision-making during sprint cycles, planning, and backlog grooming, ensuring scalable design and timely feature delivery.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <h3>iOS Engineer <span class="org">Next Generation Innovation (NextGenI)</span></h3>
+          <time>Feb 2021 &ndash; Mar 2023</time>
+        </div>
+        <ul>
+          <li>Owned the iOS app for Zofeur, an early-stage product, taking it from concept to App Store release and driving technical decisions, feature development, and core architecture.</li>
+          <li>Designed and implemented the core maps layer using Google Maps SDK and Core Location, including driver and user tracking, geofencing, and map-driven flows.</li>
+          <li>Implemented polylines and custom overlays to visualize trip routes, driver approach, and live trip progress.</li>
+          <li>Redesigned Google Maps API integration with intelligent caching, request throttling, and usage optimization, cutting monthly infrastructure costs by roughly 89%.</li>
+          <li>Worked closely with designers and product to iterate on map UX, motion, and transitions, rapidly testing and refining new mapping experiences.</li>
+          <li>Designed a scalable MVVM-based modular architecture with reusable feature components that became the standard across multiple iOS projects within the organization, improving scalability and reducing setup time.</li>
+          <li>Optimized app bundle size by eliminating unused resources, redundant modules, and dead code, improving install experience and reducing App Store package size by 18%.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li><strong>Languages:</strong> Swift, Objective-C</li>
+        <li><strong>Frameworks:</strong> UIKit, SwiftUI, Core Data, Core Animation, Core Location, AVFoundation, StoreKit, Combine, MapKit, WidgetKit</li>
+        <li><strong>macOS:</strong> AppKit, Notarization, PKG Packaging, Code Signing, Gatekeeper, Instruments</li>
+        <li><strong>Networking &amp; Data:</strong> URLSession, Alamofire, Codable, Firebase, RESTful APIs</li>
+        <li><strong>Architecture &amp; Concurrency:</strong> Swift Concurrency (async/await, Actors), Grand Central Dispatch (GCD), OperationQueue, MVVM / Clean Architecture, Dependency Injection</li>
+        <li><strong>Performance &amp; System-Level:</strong> Memory Management (ARC), App Lifecycle Management, Background Tasks, Push Notifications, Instruments (Leaks, Allocations, Time Profiler)</li>
+        <li><strong>Payments:</strong> StoreKit, Apple Pay, Stripe, AWS payment gateway integration</li>
+        <li><strong>Security:</strong> Keychain, SSL/certificate pinning, code signing (certificates, provisioning profiles, APNs certificates)</li>
+        <li><strong>Testing &amp; Quality:</strong> XCTest, TDD</li>
+        <li><strong>DevOps &amp; CI/CD:</strong> Fastlane, GitHub Actions, Azure DevOps</li>
+        <li><strong>Tools:</strong> Git, Firebase Crashlytics, Xcode Debugger, CocoaPods, SPM, Jira</li>
+        <li><strong>Methodologies:</strong> Agile / Scrum</li>
+        <li><strong>AI-Assisted Development:</strong> Claude Code, Cursor, prompt engineering, prompt library design</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <article class="job">
+        <div class="job-head">
+          <h3>Bachelor of Engineering, Computer Systems Engineering <span class="org">Mehran University of Engineering and Technology, Jamshoro</span></h3>
+          <time>2016 &ndash; 2019</time>
+        </div>
+        <ul>
+          <li>GPA: 3.70</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

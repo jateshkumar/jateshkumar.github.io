@@ -140,6 +140,11 @@ const printLine = ([kind, text]) => {
 };
 
 const runPipeline = (n = 0) => {
+  // Wait while the tab is hidden instead of printing lines nobody sees
+  if (document.hidden) {
+    document.addEventListener('visibilitychange', () => runPipeline(n), { once: true });
+    return;
+  }
   termBody.textContent = '';
   const lines = pipelineLines(releases[n % releases.length]);
   lines.forEach((line, k) => setTimeout(() => printLine(line), k * 650));
@@ -222,6 +227,8 @@ const commands = [
   { group: 'Go to', label: 'Skills', hint: '#skills', run: goTo('#skills') },
   { group: 'Go to', label: 'Contact', hint: '#contact', run: goTo('#contact') },
   { group: 'Actions', label: 'Book a 30-min call', hint: 'calendly', run: openTab('https://calendly.com/jateshkumarmaheshwari/30min') },
+  { group: 'Actions', label: 'Open terminal', hint: '`', run: () => openTerm() },
+  { group: 'Actions', label: 'View resume (web page)', hint: 'resume.html', run: openTab('resume.html') },
   {
     group: 'Actions',
     label: 'Download resume (PDF)',
@@ -344,6 +351,157 @@ paletteInput.addEventListener('keydown', (e) => {
 // Clicking the dimmed backdrop closes the palette
 palette.addEventListener('click', (e) => {
   if (e.target === palette) palette.close();
+});
+
+// Interactive terminal: press ` (or use the status bar button) and type "help"
+const term = document.getElementById('term');
+const termOut = term.querySelector('.term-out');
+const termForm = term.querySelector('.term-line');
+const termInput = term.querySelector('input');
+const calendly = 'https://calendly.com/jateshkumarmaheshwari/30min';
+
+const apps = {
+  purevpn: { name: 'PureVPN', platforms: 'iOS, macOS', url: 'https://apps.apple.com/us/app/purevpn-secure-vpn-for-iphone/id594506418' },
+  puredome: { name: 'PureDome', platforms: 'iOS, macOS', url: 'https://apps.apple.com/us/app/puredome-zero-trust-security/id1601389848' },
+  zofeur: { name: 'Zofeur', platforms: 'iOS', url: 'https://apps.apple.com/us/app/zofeur-hire-a-safe-driver/id1520275979' },
+  orko: { name: 'ORKO Network', platforms: 'iOS', url: 'https://apps.apple.com/us/app/orko-network/id1588216570' },
+  merigari: { name: 'Meri Gari', platforms: 'iOS', url: 'https://apps.apple.com/pk/app/meri-gari/id1631521260' },
+};
+
+const termCommands = {
+  help: () => [
+    'Available commands:',
+    '  whoami          who I am',
+    '  ls apps         apps I have shipped',
+    '  open <app>      open an app on the App Store (e.g. open zofeur)',
+    '  experience      where I have worked',
+    '  skills          what I work with',
+    '  resume          view my resume',
+    '  contact         how to reach me',
+    '  book            book a 30-min call',
+    '  clear           clear the screen',
+    '  exit            close the terminal',
+  ],
+  whoami: () => [
+    'Jatesh Kumar',
+    'Senior iOS & macOS Engineer · Deputy Manager, Team Lead',
+    'Karachi, Pakistan · open to remote roles and freelance projects',
+  ],
+  ls: (args) => {
+    if (args[0] && args[0] !== 'apps') return [`ls: ${args[0]}: No such file or directory. Try "ls apps".`];
+    return Object.entries(apps).map(([key, app]) => `  ${key.padEnd(10)} ${app.name.padEnd(14)} ${app.platforms}`);
+  },
+  open: (args) => {
+    const app = apps[(args[0] || '').toLowerCase()];
+    if (!app) return [`open: unknown app "${args[0] || ''}". Run "ls apps" to see the list.`];
+    window.open(app.url, '_blank', 'noopener');
+    return [`Opening ${app.name} on the App Store...`];
+  },
+  experience: () => [
+    '* Sep 2026 – now      Deputy Manager, AI/ML Automation · Ideas Private Limited',
+    '* Mar 2023 – Sep 2026 Senior Engineer, iOS/macOS · PureSquare (Disrupt.com)',
+    '* Feb 2021 – Mar 2023 iOS Engineer · Next Generation Innovation (NextGenI)',
+  ],
+  skills: () => [
+    'languages     Swift, Objective-C',
+    'ui            SwiftUI, UIKit, AppKit',
+    'concurrency   Swift Concurrency, Actors, GCD, Combine',
+    'architecture  MVVM, Clean Architecture, Dependency Injection, Feature Flags',
+    'release       Fastlane, Azure DevOps, GitHub Actions, notarization, PKG',
+    'testing       XCTest, TDD, Firebase Crashlytics, Instruments',
+  ],
+  resume: () => {
+    window.open('resume.html', '_blank', 'noopener');
+    return ['Opening resume.html... (PDF: assets/Jatesh-Kumar-Resume.pdf)'];
+  },
+  contact: () => [
+    'email      jateshkumarmaheshwari@gmail.com',
+    'linkedin   linkedin.com/in/jkmaheshwari',
+    'github     github.com/jateshkumar',
+    'calendly   calendly.com/jateshkumarmaheshwari/30min',
+  ],
+  book: () => {
+    window.open(calendly, '_blank', 'noopener');
+    return ['Opening Calendly...'];
+  },
+  sudo: (args) => {
+    if (args.join(' ').toLowerCase() !== 'hire jatesh') return ['sudo: try "sudo hire jatesh"'];
+    window.open(calendly, '_blank', 'noopener');
+    return ['[sudo] password for recruiter: ********', 'Access granted. Opening Calendly to book a call...'];
+  },
+  clear: () => {
+    termOut.textContent = '';
+    return [];
+  },
+  exit: () => {
+    term.close();
+    return [];
+  },
+};
+
+const termHistory = [];
+let historyIndex = 0;
+
+const termPrint = (lines, className = '') => {
+  lines.forEach((text) => {
+    const line = document.createElement('div');
+    if (className) line.className = className;
+    line.textContent = text;
+    termOut.append(line);
+  });
+  termOut.scrollTop = termOut.scrollHeight;
+};
+
+const openTerm = () => {
+  if (term.open) return;
+  closeMenu();
+  if (palette.open) palette.close();
+  if (!termOut.childElementCount) {
+    termPrint(['Welcome to jateshkumar.dev. Type "help" to see what you can do.']);
+  }
+  term.showModal();
+  termInput.focus();
+};
+
+termForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const raw = termInput.value.trim();
+  termInput.value = '';
+  termPrint([`jatesh@mac:~$ ${raw}`], 't-cmd');
+  if (!raw) return;
+
+  termHistory.push(raw);
+  historyIndex = termHistory.length;
+  const [name, ...args] = raw.split(/\s+/);
+  const command = termCommands[name.toLowerCase()];
+  if (command) termPrint(command(args));
+  else termPrint([`zsh: command not found: ${name}. Type "help".`], 't-err');
+});
+
+termInput.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+    e.preventDefault();
+    historyIndex = Math.max(0, Math.min(termHistory.length, historyIndex + (e.key === 'ArrowUp' ? -1 : 1)));
+    termInput.value = termHistory[historyIndex] || '';
+  } else if (e.key === 'Tab') {
+    e.preventDefault();
+    const match = Object.keys(termCommands).find((c) => c.startsWith(termInput.value.toLowerCase()));
+    if (termInput.value && match) termInput.value = match;
+  }
+});
+
+document.querySelectorAll('[aria-controls="term"]').forEach((btn) => btn.addEventListener('click', openTerm));
+term.querySelector('.term-close').addEventListener('click', () => term.close());
+term.addEventListener('click', (e) => {
+  if (e.target === term) term.close();
+});
+
+document.addEventListener('keydown', (e) => {
+  const typing = e.target instanceof Element && e.target.closest('input, textarea');
+  if (e.key === '`' && !typing && !term.open) {
+    e.preventDefault();
+    openTerm();
+  }
 });
 
 // Contact form: posts to a Google Form in the background so the visitor stays on the page

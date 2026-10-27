@@ -7,6 +7,7 @@ Personal portfolio for Jatesh Kumar. Static HTML, CSS, and JavaScript, no build 
 - `index.html`: page content and structure
 - `style.css`: dark theme and layout
 - `script.js`: mobile menu, year in footer, contact form submission
+- `resume.html`: web and printable version of the resume (keep it in sync with the PDF)
 - `assets/Jatesh-Kumar-Resume.pdf`: downloadable resume
 - `assets/favicon.svg`, `assets/apple-touch-icon.png`: browser and home-screen icons
 - `assets/apps/`: App Store icons and screenshots for the Apps section (`<app>-icon.png`, `<app>-1.webp` to `-3.webp`)
@@ -42,4 +43,5 @@ GitHub Pages only serves static files, so the form posts to a Google Form ("Cont
 - **Services, Impact, and Reviews:** edit the `.service`, `.case`, and `.review` blocks. Reviews are quoted word for word from Upwork and Freelancer.com, so keep them verbatim.
 - **Experience and skills:** edit the `<li>` items in the Experience timeline and the `.chips` groups in Skills.
 - **Colors:** change the CSS variables at the top of `style.css`.
-- **Resume:** replace `assets/Jatesh-Kumar-Resume.pdf` with a new file of the same name.
+- **Resume:** replace `assets/Jatesh-Kumar-Resume.pdf` with a new file of the same name, and update `resume.html` to match.
+- **Terminal and command palette:** commands live in `script.js` (`termCommands` for the ` terminal, `commands` for the ⌘K palette).
