@@ -1,32 +1,71 @@
 # jateshkumar.github.io
 
-Personal portfolio for Jatesh Kumar. Static HTML, CSS, and JavaScript, no build step.
+Personal portfolio for Jatesh Kumar, Staff iOS & macOS Engineer | Deputy Manager. Static HTML, CSS, and JavaScript, no build step. Live at https://jateshkumar.github.io, served by GitHub Pages from `main`.
+
+> This README is public (GitHub Pages publishes every file in the repo). Keep private notes, drafts, and the phone number out of it.
+
+## Project rules
+
+- Static site only: `index.html`, `style.css`, `script.js`. Ask before adding a framework or build step.
+- Keep copy factual and in the first person. Use only verified metrics (from the resume, App Store, or Jatesh).
+- Don't add the phone number or a photo without asking.
+- Don't commit notes, drafts, or context files. Everything in the repo is public.
+- Title everywhere is "Staff iOS & macOS Engineer | Deputy Manager". The current role is shown as "Deputy Manager (Staff Engineer), AI/ML Automation". Don't use "Team Lead" (except inside someone else's own job title).
+- Recommendations and client reviews are quoted word for word. Only obvious typos are fixed (and Farhaj's "Jitesh" is shown as "[Jatesh]").
+- Keep this README in sync with the site.
+- Commits go straight to `main`. Ask Jatesh before pushing.
 
 ## Files
 
-- `index.html`: page content and structure
-- `style.css`: dark theme and layout
-- `script.js`: mobile menu, year in footer, contact form submission
-- `resume.html`: web and printable version of the resume (keep it in sync with the PDF)
-- `assets/Jatesh-Kumar-Resume.pdf`: downloadable resume
-- `assets/favicon.svg`, `assets/apple-touch-icon.png`: browser and home-screen icons
-- `assets/apps/`: App Store icons and screenshots for the Apps section (`<app>-icon.png`, `<app>-1.webp` to `-3.webp`)
-- `assets/og-image.png`: 1200x630 preview image shown when the link is shared on LinkedIn, Slack, etc.
-- `404.html`: page GitHub Pages shows for missing URLs
-- `robots.txt`, `sitemap.xml`: search engine hints (update `<lastmod>` in the sitemap after big content changes)
+- `index.html`: the main page. Sections: hero (code window, release-pipeline terminal, stats, "LIVE NOW" app ticker), Services, Apps (iOS and macOS), Impact, Experience, What people say (LinkedIn recommendations and freelance reviews), Skills, Contact.
+- `style.css`: dark "editor" theme. Colors and widths are CSS variables at the top (`--max: 1320px`, `--gutter`). From 1200px up, each section has a sticky heading column on the left; Services, Impact, and Testimonials sit on full-width bands.
+- `script.js`: menu, scroll reveal, count-up stats, scroll-spy, typing code window, pipeline loop, floating app-icon background, cursor spotlight, ⌘K command palette (`commands`), `` ` `` terminal (`termCommands`), Karachi clock in the status bar, Google Forms submission.
+- `resume.html`: web and printable resume (prints to 2 pages). Keep it in sync with the PDF.
+- `zofeur.html`: Zofeur case study (built from scratch as a trainee, shipped solo, the $700 Google Maps lesson, $27K → $3K monthly Maps bill).
+- `404.html`, `robots.txt`, `sitemap.xml` (update `<lastmod>` after big content changes).
+- `assets/Jatesh-Kumar-Resume.pdf`: downloadable resume.
+- `assets/favicon.svg`, `assets/apple-touch-icon.png`: icons.
+- `assets/og-image.png`: 1200x630 link preview for LinkedIn, Slack, etc.
+- `assets/apps/`: App Store icons and screenshots (`<app>-icon.png`, `<app>-1.webp` to `-3.webp`).
 
-## Replacing the old site
+## Status
 
-1. Open the repo on GitHub and delete the old files, keeping the `.git` history.
-2. Upload these files: `index.html`, `style.css`, `script.js`, `README.md`, and the `assets/` folder.
-3. Commit the changes to the `main` branch.
+### Done
 
-## Turning on GitHub Pages
+- Resume download fixed (the PDF was in the repo root but linked from `assets/`).
+- Logo changed to `jateshkumar.dev`.
+- Techie UI: code window, pipeline terminal, ⌘K palette, interactive terminal, status bar, cursor spotlight, card glow, floating app icons, live-apps ticker. All animation respects reduced motion.
+- Services section with a freelance note and a Calendly "Book a 30-min call" button.
+- Apps: five iOS apps with screenshots and ratings, plus PureVPN and PureDome for Mac (linked to their download pages).
+- Impact section with three case summaries; full Zofeur case study page.
+- Experience lists every bullet from the resume, including the trainee line.
+- Six LinkedIn recommendations in full (three columns of two) and five freelance reviews, with Upwork and Freelancer links.
+- Contact form posts to a Google Form.
+- Title changed to Staff iOS & macOS Engineer | Deputy Manager everywhere, including the preview image.
+- Wide editorial layout with handwritten notes so the page doesn't look like a narrow centered template.
+- SEO: Open Graph and Twitter tags, JSON-LD, sitemap, robots, 404 page. Lighthouse scored 100 in all four categories (before the wide layout).
 
-1. In the repo, go to **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to *Deploy from a branch*.
-3. Set **Branch** to `main` and the folder to `/ (root)`, then click **Save**.
-4. After about a minute, the site is live at `https://jateshkumar.github.io`.
+### Left (needs Jatesh)
+
+1. Set the GitHub profile website field to https://jateshkumar.github.io/.
+2. Update the resume PDF: new title, and remove the phone number if it should stay private. Then replace `assets/Jatesh-Kumar-Resume.pdf`.
+3. Confirm the published metrics are OK under any NDA (100K+ users, 87% → 96% crash-free, $27K → $3K, −18%).
+4. Update the LinkedIn headline, then re-run LinkedIn Post Inspector on the site URL so the new preview shows.
+5. Click-check the Upwork link (it blocks automated checks).
+6. Optional: delete the "Claude test" response in the Google Form.
+
+### Ideas (need input from Jatesh)
+
+- A second case study (PureVPN crash-free work, macOS notarization pipeline, or the Swift Concurrency migration). Rough notes are enough.
+- Zofeur details: the order of the $700 slip and the $27K bill, and the App Store rejection reasons.
+- Visitor analytics (GoatCounter or Cloudflare Web Analytics) to see recruiter visits and resume downloads.
+- Custom domain `jateshkumar.dev` to match the logo.
+- A LinkedIn post based on the Zofeur story.
+
+### Next technical checks
+
+- Re-run Lighthouse and a phone check on the wide layout.
+- Bring `resume.html` and `zofeur.html` up to the wide layout so all pages match.
 
 ## Contact form
 
@@ -40,8 +79,14 @@ GitHub Pages only serves static files, so the form posts to a Google Form ("Cont
 ## Updating content
 
 - **Apps:** edit the `<article class="card">` blocks in the Apps section. Ratings are copied by hand from the App Store, so refresh them now and then.
-- **Services, Impact, and Reviews:** edit the `.service`, `.case`, and `.review` blocks. Reviews are quoted word for word from Upwork and Freelancer.com, so keep them verbatim.
+- **Services, Impact, and Reviews:** edit the `.service`, `.case`, and `.review` blocks. Keep reviews and recommendations word for word.
 - **Experience and skills:** edit the `<li>` items in the Experience timeline and the `.chips` groups in Skills.
-- **Colors:** change the CSS variables at the top of `style.css`.
+- **Section layout:** each section is a `.section-head` (prompt, heading, one-line `.section-meta`) and a `.section-body`. Add `band` to a section's classes for a full-width background.
+- **Handwritten notes:** `.hand-note` elements; they're hidden below 900px.
+- **Colors and widths:** change the CSS variables at the top of `style.css`.
 - **Resume:** replace `assets/Jatesh-Kumar-Resume.pdf` with a new file of the same name, and update `resume.html` to match.
-- **Terminal and command palette:** commands live in `script.js` (`termCommands` for the ` terminal, `commands` for the ⌘K palette).
+- **Terminal and command palette:** commands live in `script.js` (`termCommands` for the `` ` `` terminal, `commands` for the ⌘K palette).
+
+## Previewing locally
+
+Run `python3 -m http.server 8765` in the repo folder and open http://localhost:8765.
